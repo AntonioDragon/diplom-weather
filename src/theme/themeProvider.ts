@@ -1,17 +1,15 @@
-import {ThemePaletteEnum} from './themePalette'
-import themesWether from './themesWether'
+import {DefaultTheme} from 'styled-components'
+import themesWether, {ThemePaletteEnum} from './themesWether'
 
 const themeProvider = {
-  getThemeByName: (name: ThemePaletteEnum) => {
+  getThemeByName: (name?: ThemePaletteEnum): DefaultTheme => {
     switch (name) {
-      case ThemePaletteEnum.cloudy:
-        return themesWether.getThemeCloudy()
-      case ThemePaletteEnum.rainy:
-        return themesWether.getThemeRainy()
-      case ThemePaletteEnum.snowy:
-        return themesWether.getThemeSnowy()
-      case ThemePaletteEnum.solar:
-        return themesWether.getThemeSolar()
+      case ThemePaletteEnum.cloud:
+        return themesWether.getThemeCloud()
+      case ThemePaletteEnum.rain:
+        return themesWether.getThemeRain()
+      case ThemePaletteEnum.sun:
+        return themesWether.getThemeSun()
       default:
         return themesWether.defaultTheme()
     }

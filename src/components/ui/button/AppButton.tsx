@@ -29,7 +29,37 @@ const AppButton: React.FC<AppButtonProps> = ({
   )
 }
 
-export default styled(AppButton)<StyleProps>`
+interface AppButtonStyledProps extends StyleProps {
+  primary?: boolean
+  secondary?: boolean
+  outline?: boolean
+}
+
+export default styled(AppButton)<AppButtonStyledProps>`
   padding: 15px 20px;
-  width: ${({width}) => width};
+  width: ${({width}) => width || '100%'};
+  background: ${({theme}) => theme.colors.secondary};
+
+  ${({primary, theme}) =>
+    primary &&
+    `
+    background: ${theme.colors.primary};
+    color: ${theme.colors.secondary};
+  `};
+
+  ${({outline, theme}) =>
+    outline &&
+    `
+    background: transparent;
+    color: ${theme.colors.secondary};
+    border: 1px solid ${theme.colors.secondary};
+  `};
+
+  ${({disabled, theme}) =>
+    disabled &&
+    `
+   
+    color: ${theme.colors.secondary};
+  `};
 `
+// background: ${theme.colors.disabled};

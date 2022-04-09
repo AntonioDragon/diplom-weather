@@ -1,58 +1,60 @@
+import {DefaultTheme} from 'styled-components'
 import getPartOfTheDay, {PartDay} from './getPartOfTheDay'
-import themePalette from './themePalette'
+import {CloudPalette} from './weatherPalette.ts/CloudPalette'
+import {defaultPalette} from './weatherPalette.ts/DefaultPalette'
+import {RainPalette} from './weatherPalette.ts/RainPalette'
+import {SunPalette} from './weatherPalette.ts/SunPalette'
+
+export enum ThemePaletteEnum {
+  sun = 'sun',
+  cloud = 'cloud',
+  rain = 'rain'
+}
 
 const themesWether = {
-  getThemeSolar: () => {
+  getThemeSun: (): DefaultTheme => {
     switch (getPartOfTheDay()) {
       case PartDay.afternoon:
-        return themePalette.sun_afternoon()
+        return SunPalette.getAfternoonThemeSun()
       case PartDay.evening:
-        return themePalette
+        return SunPalette.getEveningThemeSun()
       case PartDay.morning:
-        return themePalette
+        return SunPalette.getMorningThemeSun()
       case PartDay.night:
-        return themePalette
+        return SunPalette.getNightThemeSun()
+      default:
+        return defaultPalette.geThemeDefault()
     }
   },
-  getThemeCloudy: () => {
+  getThemeCloud: (): DefaultTheme => {
     switch (getPartOfTheDay()) {
       case PartDay.afternoon:
-        return themePalette.sun_afternoon()
+        return CloudPalette.getAfternoonThemeCloud()
       case PartDay.evening:
-        return themePalette
+        return CloudPalette.getEveningThemeCloud()
       case PartDay.morning:
-        return themePalette
+        return CloudPalette.getMorningThemeCloud()
       case PartDay.night:
-        return themePalette
+        return CloudPalette.getNightThemeCloud()
+      default:
+        return defaultPalette.geThemeDefault()
     }
   },
-  getThemeRainy: () => {
+  getThemeRain: (): DefaultTheme => {
     switch (getPartOfTheDay()) {
       case PartDay.afternoon:
-        return themePalette.sun_afternoon()
+        return RainPalette.getAfternoonThemeRain()
       case PartDay.evening:
-        return themePalette
+        return RainPalette.getEveningThemeRain()
       case PartDay.morning:
-        return themePalette
+        return RainPalette.getMorningThemeRain()
       case PartDay.night:
-        return themePalette
+        return RainPalette.getNightThemeRain()
+      default:
+        return defaultPalette.geThemeDefault()
     }
   },
-  getThemeSnowy: () => {
-    switch (getPartOfTheDay()) {
-      case PartDay.afternoon:
-        return themePalette.sun_afternoon()
-      case PartDay.evening:
-        return themePalette
-      case PartDay.morning:
-        return themePalette
-      case PartDay.night:
-        return themePalette
-    }
-  },
-  defaultTheme: () => {
-        
-  }
+  defaultTheme: (): DefaultTheme => defaultPalette.geThemeDefault()
 }
 
 export default themesWether
