@@ -1,9 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit'
+import favoriteReducer from './favorite/favoriteReducer'
 import themeReducer from './theme/themeReducer'
+import weatherReducer from './weather/weatherReducer'
 
 const store = configureStore({
   reducer: {
-    theme: themeReducer
+    theme: themeReducer,
+    weather: weatherReducer,
+    favorite: favoriteReducer
   }
 })
 

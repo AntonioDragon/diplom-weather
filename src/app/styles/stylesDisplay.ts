@@ -1,10 +1,12 @@
 export enum DisplayEnum {
   block = 'block',
   flex = 'flex',
-  grid = 'grid'
+  grid = 'grid',
+  inline = 'inline',
+  none = 'none'
 }
 
-export enum JustifyContent {
+export enum JustifyContentEnum {
   flexStart = 'flex-start',
   flexEnd = 'flex-end',
   center = 'center',
@@ -13,7 +15,7 @@ export enum JustifyContent {
   spaceEvenly = 'space-evenly'
 }
 
-export enum AlignItems {
+export enum AlignItemsEnum {
   flexStart = 'flex-start',
   flexEnd = 'flex-end',
   center = 'center'
@@ -21,6 +23,6 @@ export enum AlignItems {
 
 export interface Display {
   display?: DisplayEnum
-  justifyContent?: JustifyContent
-  alignItems?: AlignItems
+  justifyContent?: JustifyContentEnum
+  alignItems?: AlignItemsEnum
 }
