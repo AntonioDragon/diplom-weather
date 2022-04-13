@@ -26,3 +26,4 @@ export interface StyleProps
   height?: string
   transition?: string
 }
+

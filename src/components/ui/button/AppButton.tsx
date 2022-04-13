@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import {StyleProps} from '../../../app/styles/styleProps'
 
 interface AppButtonProps {
@@ -35,31 +35,34 @@ interface AppButtonStyledProps extends StyleProps {
   outline?: boolean
 }
 
-export default styled(AppButton)<AppButtonStyledProps>`
-  padding: 15px 20px;
-  width: ${({width}) => width || '100%'};
-  background: ${({theme}) => theme.colors.secondary};
 
-  ${({primary, theme}) =>
-    primary &&
-    `
-    background: ${theme.colors.primary};
-    color: ${theme.colors.secondary};
-  `};
 
-  ${({outline, theme}) =>
-    outline &&
-    `
-    background: transparent;
-    color: ${theme.colors.secondary};
-    border: 1px solid ${theme.colors.secondary};
-  `};
+export default AppButton
+// export default styled(AppButton)<AppButtonStyledProps>`
+//   padding: 15px 20px;
+//   width: ${({width}) => width || '100%'};
+//   background: ${({theme}) => theme.colors.secondary};
 
-  ${({disabled, theme}) =>
-    disabled &&
-    `
+//   ${({primary, theme}) =>
+//     primary &&
+//     `
+//     background: ${theme.colors.primary};
+//     color: ${theme.colors.secondary};
+//   `};
+
+//   ${({outline, theme}) =>
+//     outline &&
+//     `
+//     background: transparent;
+//     color: ${theme.colors.secondary};
+//     border: 1px solid ${theme.colors.secondary};
+//   `};
+
+//   ${({disabled, theme}) =>
+//     disabled &&
+//     `
    
-    color: ${theme.colors.secondary};
-  `};
-`
+//     color: ${theme.colors.secondary};
+//   `};
+// `
 // background: ${theme.colors.disabled};
