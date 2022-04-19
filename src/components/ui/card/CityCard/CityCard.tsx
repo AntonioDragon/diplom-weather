@@ -1,26 +1,14 @@
 import React from 'react'
 import {FavoriteData} from '../../../../app/appTypes'
-import {
-  Card,
-  CardBlock,
-  CardButton,
-  CardParagraph,
-  SmallCardBlock
-} from './CityCardStyles'
+import {Card, CardBlock, CardButton, CardParagraph} from './CityCardStyles'
 
 interface CityCardProps extends FavoriteData {
-  isActiveFavorite: boolean
+  onClick: () => void
 }
 
-const CityCard: React.FC<CityCardProps> = ({
-  name,
-  lat,
-  lon,
-  isActiveFavorite
-}) => {
+const CityCard: React.FC<CityCardProps> = ({name, lat, lon}) => {
   return (
-    <Card isActive={isActiveFavorite}>
-      <SmallCardBlock>{name[0]}</SmallCardBlock>
+    <Card>
       <CardBlock width='90%'>
         <CardParagraph>{name}</CardParagraph>
         <CardParagraph>{`${lat} ${lon}`}</CardParagraph>

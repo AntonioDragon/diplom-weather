@@ -9,6 +9,7 @@ import {ObjectFit} from './stylesObjectFit'
 import {Overflow} from './stylesOverflow'
 import {Padding} from './stylesPadding'
 import {Position} from './stylesPosition'
+import styled from 'styled-components'
 
 export interface StyleProps
   extends Position,

@@ -1,4 +1,28 @@
 import styled from 'styled-components'
+import AppButton from '../../button/AppButton'
+
+interface ButtonCheckboxStyledProps {
+  isActive: boolean
+}
+
+export const ButtonCheckbox = styled(AppButton)<ButtonCheckboxStyledProps>`
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  border: none;
+  background-color: transparent;
+  & svg {
+    & * {
+      fill: #ffffff;
+      transition: 0.3s all ease-out;
+    }
+  }
+  &:hover {
+    & svg * {
+      fill: #ff4a16;
+    }
+  }
+`
 
 export const PreviewCard = styled.div`
   position: relative;
@@ -16,6 +40,7 @@ export const WrapperImage = styled.div`
 export const Paragraph = styled.p`
   position: absolute;
   bottom: 5px;
+  font-size: 18px;
   width: 100%;
   text-align: center;
 `

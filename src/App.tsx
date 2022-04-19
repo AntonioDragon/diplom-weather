@@ -1,21 +1,21 @@
 import React from 'react'
-import styled from 'styled-components'
 import Header from './components/layout/Header/Header'
-import Favorites from './components/section/Favorites/Favorites'
-import Forecast from './components/section/Forecast/Forecast'
-
-const Main = styled.main`
-  display: flex;
-`
+import FavoritesBar from './components/modals/FavoritesBar'
+import ForecastsBar from './components/modals/ForecastsBar'
+import Portal from './components/modals/Portal'
+import Forecast from './components/section/ForecastWeather/Forecast'
 
 const App: React.FC = () => {
   return (
     <>
       <Header />
-      <Main>
-        <Favorites />
+      <Portal>
+        <FavoritesBar />
+        <ForecastsBar />
+      </Portal>
+      <main>
         <Forecast />
-      </Main>
+      </main>
     </>
   )
 }
