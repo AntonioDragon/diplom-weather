@@ -6,6 +6,9 @@ export const ForecastSection = styled.section`
   height: 100vh;
   box-sizing: border-box;
   background-color: #121212;
+  @media (max-width: 992px) {
+    padding: 100px 40px 0 40px;
+  }
 `
 
 interface DropZoneProps {
@@ -31,12 +34,8 @@ export const DropZoneTop = styled.div<DropZoneProps>`
 `
 
 export const DropZoneBottom = styled.div<DropZoneProps>`
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100%;
-  height: 40px;
+  height: 30px;
   transition: 0.3s all ease-out;
   ${({isActive}) =>
     isActive &&
@@ -45,9 +44,6 @@ export const DropZoneBottom = styled.div<DropZoneProps>`
     background-color: rgba(0, 129, 141,0.2);
   `};
 `
-
-
-
 
 export const ForecastWeatherList = styled.ul`
   position: relative;
@@ -64,6 +60,15 @@ export const ForecastWeatherList = styled.ul`
     rgba(255, 255, 255, 0.16),
     rgba(255, 255, 255, 0.16)
   );
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #333333;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #121212;
+  }
 `
 
 export const ForecastWeatherElement = styled.li`

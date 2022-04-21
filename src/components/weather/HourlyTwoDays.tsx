@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react'
 import Carousel from 'react-multi-carousel'
 import {weatherService} from '../../api/weatherService'
 import {ForecastCardProps} from '../../app/appWeatherTypes'
-import fiveDaysThreeHourWeather from '../../app/weather/fiveDaysThreeHour'
+import {HourlyTwoDaysWeather} from '../../app/weather/hourlyTwoDays'
 import Loader from '../ui/loader/Loader'
-import SliderCardWeather from './slider/Card/SliderCardHour'
+import SliderCardHourlyTwoDays from './slider/Card/SliderCardHourlyTwoDays'
 import {Header, WeatherCard} from './style/CardWeatherStyle'
 
 const responsive = {
@@ -45,19 +45,15 @@ const responsive = {
     items: 1
   }
 }
+interface HourlyTwoDaysProps extends ForecastCardProps {}
 
-interface FiveDaysTreeHourProps extends ForecastCardProps {}
-
-const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
-  location,
-  forecast
-}) => {
+const HourlyTwoDays: React.FC<HourlyTwoDaysProps> = ({location, forecast}) => {
   const [isLoad, setIsLoad] = useState(false)
-  const [weather, setWeather] = useState<fiveDaysThreeHourWeather>()
+  const [weather, setWeather] = useState<HourlyTwoDaysWeather>()
 
   useEffect(() => {
     setIsLoad(true)
-    weatherService.getFiveDaysThreeHour(forecast).then((data) => {
+    weatherService.getHourlyTwoDays(forecast).then((data) => {
       setWeather(data)
       setIsLoad(false)
     })
@@ -68,8 +64,8 @@ const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
       {isLoad ? (
         <Loader />
       ) : (
-        <WeatherCard padding='10px 15px'>
-          <Header>Five Days Tree Hour</Header>
+        <WeatherCard maxWidth='500px' padding='10px 15px'>
+          <Header>Hourly Two Days</Header>
           <Carousel
             responsive={responsive}
             removeArrowOnDeviceType={[
@@ -80,8 +76,11 @@ const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
               'mobile_small'
             ]}
           >
-            {weather?.list.map((dayWeather) => (
-              <SliderCardWeather key={dayWeather.dt} weather={dayWeather} />
+            {weather?.hourly.map((hourlyWeather) => (
+              <SliderCardHourlyTwoDays
+                key={hourlyWeather.dt}
+                weather={hourlyWeather}
+              />
             ))}
           </Carousel>
         </WeatherCard>
@@ -90,4 +89,4 @@ const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
   )
 }
 
-export default FiveDaysTreeHour
+export default HourlyTwoDays
