@@ -3,23 +3,16 @@ import {DndProvider} from 'react-dnd'
 import {HTML5Backend} from 'react-dnd-html5-backend'
 import {useAppSelector} from '../../../app/appStoreHooks'
 import {getForecastsActive} from '../../../store/weather/weatherSelectors'
-import ForecastElement from './ForecastElement'
-import {ForecastSection, ForecastWeatherList} from './ForecastStyles'
+import {ForecastSection} from './ForecastStyles'
+import ForecastList from './ForecastWeatherList'
 
 const Forecast: React.FC = () => {
   const activeForecasts = useAppSelector(getForecastsActive)
+
   return (
     <ForecastSection>
       <DndProvider backend={HTML5Backend}>
-        <ForecastWeatherList>
-          {activeForecasts.map((forecasts, index) => (
-            <ForecastElement
-              key={index}
-              activeForecasts={forecasts}
-              idElement={index}
-            />
-          ))}
-        </ForecastWeatherList>
+        <ForecastList forecasts={activeForecasts} />
       </DndProvider>
     </ForecastSection>
   )

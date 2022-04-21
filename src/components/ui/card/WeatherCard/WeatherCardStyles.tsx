@@ -2,18 +2,12 @@ import styled from 'styled-components'
 
 export const WeatherCardBlock = styled.div`
   position: relative;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 5px;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background-color: rgb(18, 18, 18);
   border-radius: 4px;
-  box-shadow: rgb(0 0 0 / 20%) 0px 11px 15px -7px,
-    rgb(0 0 0 / 14%) 0px 24px 38px 3px, rgb(0 0 0 / 12%) 0px 9px 46px 8px;
-  background-image: linear-gradient(
-    rgba(255, 255, 255, 0.16),
-    rgba(255, 255, 255, 0.16)
-  );
 `
 
 interface DropZoneProps {
@@ -35,8 +29,6 @@ export const DropZoneLeft = styled.div<DropZoneProps>`
     background-color: rgba(255, 0, 41,0.2);
   `};
 `
-
-
 
 export const DropZoneRight = styled.div<DropZoneProps>`
   position: absolute;

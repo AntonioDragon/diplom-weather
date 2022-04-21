@@ -1,10 +1,8 @@
 export enum ForecastsWeather {
   currentWeather = 'CurrentWeather',
-  hourlyFourDays = 'HourlyFourDays',
-  dailySixteenDays = 'DailySixteenDays',
-  climaticThirtyDays = 'ClimaticThirtyDays',
-  solarRadiation = 'SolarRadiation',
+  dailyForecastEightDays = 'DailyForecastEightDays',
   fiveDaysTreeHour = 'FiveDaysTreeHour',
+  hourlyTwoDays = 'HourlyTwoDays',
   airPollution = 'AirPollution'
 }
 
@@ -15,11 +13,9 @@ export interface Forecast {
   isActive: boolean
 }
 
-export interface ForecastCardProps{
-  location: string,
+export interface ForecastCardProps {
+  location: string
   forecast: Forecast
 }
 
-export interface Weather{
-  
-}
+export interface Weather {}

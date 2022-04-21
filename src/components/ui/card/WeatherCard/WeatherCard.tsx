@@ -4,39 +4,34 @@ import {useAppDispatch} from '../../../../app/appStoreHooks'
 import {Forecast} from '../../../../app/appWeatherTypes'
 import useGetWeatherComponent from '../../../../hooks/useGetWeatherComponentByName'
 import {setActiveForecastDropDown} from '../../../../store/weather/weatherReducer'
-import {ItemTypes} from '../../../dnd/enum'
 import {DropPosition} from '../../../dnd/dropPosition'
-import {
-  DropZoneLeft,
-  DropZoneRight,
-  WeatherCardBlock
-} from './WeatherCardStyles'
+import {ItemTypes} from '../../../dnd/enum'
+import {DropZoneTop} from '../../../section/ForecastWeather/ForecastStyles'
+import {WeatherCardBlock} from './WeatherCardStyles'
 
 interface WeatherCardProps {
   location: string
   forecast: Forecast
-  isMaxBlock: boolean
   idElement: number
 }
 
 const WeatherCard: React.FC<WeatherCardProps> = ({
   location,
   forecast,
-  isMaxBlock,
   idElement
 }) => {
   const dispatch = useAppDispatch()
   const getForecast = useGetWeatherComponent({location})
 
-  const [{isOver: isOverLeft}, dropLeft] = useDrop(
+  const [{isOver: isOverTop}, dropTop] = useDrop(
     () => ({
       accept: ItemTypes.Card,
-      drop: (item: {id: number; isActive?: boolean}) => {
+      drop: (item: {id: number}) => {
         dispatch(
           setActiveForecastDropDown({
-            position: DropPosition.left,
+            position: DropPosition.top,
             id: item.id,
-            indexElement: idElement
+            idElement: idElement
           })
         )
       },
@@ -46,36 +41,11 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
     }),
     []
   )
-
-  const [{isOver: isOverRight}, dropRight] = useDrop(
-    () => ({
-      accept: ItemTypes.Card,
-      drop: (item: {id: number; isActive?: boolean}) => {
-        dispatch(
-          setActiveForecastDropDown({
-            position: DropPosition.right,
-            id: item.id,
-            indexElement: idElement
-          })
-        )
-      },
-      collect: (monitor) => ({
-        isOver: !!monitor.isOver()
-      })
-    }),
-    []
-  )
-
   return (
-    <WeatherCardBlock>
-      {getForecast(forecast)}
-      {!isMaxBlock && (
-        <>
-          <DropZoneLeft isActive={isOverLeft} ref={dropLeft} />
-          <DropZoneRight isActive={isOverRight} ref={dropRight} />
-        </>
-      )}
-    </WeatherCardBlock>
+    <>
+      <DropZoneTop ref={dropTop} isActive={isOverTop} />
+      <WeatherCardBlock>{getForecast(forecast)}</WeatherCardBlock>
+    </>
   )
 }
 

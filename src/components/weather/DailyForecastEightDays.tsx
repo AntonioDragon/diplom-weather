@@ -2,10 +2,12 @@ import React, {useEffect, useState} from 'react'
 import Carousel from 'react-multi-carousel'
 import {weatherService} from '../../api/weatherService'
 import {ForecastCardProps} from '../../app/appWeatherTypes'
-import fiveDaysThreeHourWeather from '../../app/weather/fiveDaysThreeHour'
+import {DailyForecastEightDaysWeather} from '../../app/weather/dailyForecastEightDays'
 import Loader from '../ui/loader/Loader'
-import SliderCardWeather from './slider/Card/SliderCardHour'
+import SliderCardDay from './slider/Card/SliderCardDay'
 import {Header, WeatherCard} from './style/CardWeatherStyle'
+
+//https://api.openweathermap.org/data/2.5/onecall?lat=-0.1964&lon=51.5095&exclude=current,minutely,hourly,alerts&appid=2e520548e365d2804c02e48c9cae65a0
 
 const responsive = {
   superLargeDesktop: {
@@ -46,18 +48,20 @@ const responsive = {
   }
 }
 
-interface FiveDaysTreeHourProps extends ForecastCardProps {}
+interface DailyForecastEightDaysProps extends ForecastCardProps {}
 
-const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
+const DailyForecastEightDays: React.FC<DailyForecastEightDaysProps> = ({
   location,
   forecast
 }) => {
   const [isLoad, setIsLoad] = useState(false)
-  const [weather, setWeather] = useState<fiveDaysThreeHourWeather>()
+  const [weather, setWeather] = useState<
+    DailyForecastEightDaysWeather | undefined
+  >()
 
   useEffect(() => {
     setIsLoad(true)
-    weatherService.getFiveDaysThreeHour(forecast).then((data) => {
+    weatherService.getDailyForecastEightDays(forecast).then((data) => {
       setWeather(data)
       setIsLoad(false)
     })
@@ -68,8 +72,8 @@ const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
       {isLoad ? (
         <Loader />
       ) : (
-        <WeatherCard padding='10px 15px'>
-          <Header>Five Days Tree Hour</Header>
+        <WeatherCard maxWidth='500px' padding='10px 15px'>
+          <Header>Daily Forecast Eight Days</Header>
           <Carousel
             responsive={responsive}
             removeArrowOnDeviceType={[
@@ -80,8 +84,8 @@ const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
               'mobile_small'
             ]}
           >
-            {weather?.list.map((dayWeather) => (
-              <SliderCardWeather key={dayWeather.dt} weather={dayWeather} />
+            {weather?.daily.map((dayWeather) => (
+              <SliderCardDay key={dayWeather.dt} weather={dayWeather} />
             ))}
           </Carousel>
         </WeatherCard>
@@ -89,5 +93,4 @@ const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
     </>
   )
 }
-
-export default FiveDaysTreeHour
+export default DailyForecastEightDays

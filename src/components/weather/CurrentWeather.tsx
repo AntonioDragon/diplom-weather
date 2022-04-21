@@ -2,7 +2,15 @@ import React, {useEffect, useState} from 'react'
 import {weatherService} from '../../api/weatherService'
 import {WeatherApiData} from '../../app/appTypes'
 import {ForecastCardProps} from '../../app/appWeatherTypes'
+import {JustifyContentEnum} from '../../app/styles/stylesDisplay'
 import Loader from '../ui/loader/Loader'
+import {
+  WeatherCard,
+  WeatherImage,
+  Paragraph,
+  BlockFlex,
+  Header
+} from './style/CardWeatherStyle'
 
 interface CurrentWeatherProps extends ForecastCardProps {}
 
@@ -26,33 +34,34 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({
       {isLoad ? (
         <Loader />
       ) : (
-        <div>
-          <img
-            src={`http://openweathermap.org/img/w/${weather?.weather[0].icon}.png`}
-            alt={weather?.weather[0].description}
-          />
-          <p>Temp:</p>
-          <p>
-            <span>max:</span>
-            {weather?.main.temp_max}
-            <span>min:</span>
-            {weather?.main.temp_min}
-          </p>
-          <p>
-            <span> Pressure:</span>
-            {weather?.main.pressure}
-          </p>
-          <p>
-            <span>Humidity:</span> {weather?.main.humidity}
-          </p>
-          <p>
-            <span>Wind:</span> {weather?.wind.speed}
-          </p>
-          <p>
-            <span>Clouds:</span>
-            {weather?.clouds.all}%
-          </p>
-        </div>
+        <WeatherCard>
+          <Header>Current Weather</Header>
+          <BlockFlex justifyContent={JustifyContentEnum.center}>
+            <WeatherImage
+              src={`http://openweathermap.org/img/w/${weather?.weather[0].icon}.png`}
+              alt={weather?.weather[0].description}
+            />
+            <Paragraph isTemp>{weather?.main.temp}</Paragraph>
+          </BlockFlex>
+          <BlockFlex marginTop='25px' justifyContent={JustifyContentEnum.spaceEvenly}>
+            <Paragraph>
+              <span> Pressure: </span>
+              {weather?.main.pressure} Pa
+            </Paragraph>
+            <Paragraph>
+              <span>Humidity: </span> {weather?.main.humidity}%
+            </Paragraph>
+          </BlockFlex>
+          <BlockFlex justifyContent={JustifyContentEnum.spaceEvenly}>
+            <Paragraph>
+              <span>Wind: </span> {weather?.wind.speed} m/s
+            </Paragraph>
+            <Paragraph>
+              <span>Clouds: </span>
+              {weather?.clouds.all}%
+            </Paragraph>
+          </BlockFlex>
+        </WeatherCard>
       )}
     </>
   )
