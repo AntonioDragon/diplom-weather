@@ -1,7 +1,7 @@
 import {DefaultTheme} from 'styled-components'
 
 export const defaultPalette = {
-  geThemeDefault: (): DefaultTheme => ({
+  getThemeDefault: (): DefaultTheme => ({
     colors: {
       primary: '#9DC1BD',
       secondary: '#086784',

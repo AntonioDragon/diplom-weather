@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ForecastSection = styled.section`
-  padding: 100px 100px 20px 100px;
+  padding: 140px 100px 20px 100px;
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
@@ -67,7 +67,7 @@ export const ForecastWeatherList = styled.ul`
     background-color: #333333;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #121212;
+    background-color: rgb(0, 30, 60);
   }
 `
 
@@ -76,4 +76,66 @@ export const ForecastWeatherElement = styled.li`
   display: flex;
   width: 100%;
   list-style-type: none;
+`
+
+export const Location = styled.div`
+  position: absolute;
+  top: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+`
+
+interface ButtonFavoriteStyledProps {
+  isActive?: boolean
+}
+
+export const ButtonFavorite = styled.button<ButtonFavoriteStyledProps>`
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  & svg {
+    & * {
+      transition: 0.3s all ease-out;
+      fill: #ffffff;
+    }
+  }
+  &:hover {
+    & svg {
+      & * {
+        fill: #ff4a16;
+      }
+    }
+  }
+  ${({isActive}) =>
+    isActive &&
+    `
+    & svg {
+      & *{
+        fill: #e9ff1f;
+      }
+    }
+    `};
+`
+
+export const ForecastNotFound = styled.h2`
+  margin: 10px 0;
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+`
+export const ForecastNotFoundParagraph = styled.p`
+  margin: 0;
+  font-size: 80px;
+  text-align: center;
+  color: #ffffff;
+`
+
+export const ForecastTitle = styled.h1`
+  margin: 0 0 0 -10px;
+  color: #ffffff;
+  & span {
+    margin-left: 10px;
+  }
 `

@@ -23,7 +23,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({
 
   useEffect(() => {
     setIsLoad(true)
-    weatherService.getCurrentWeather(forecast).then((data) => {
+    weatherService.getCurrentWeather(location).then(({data}) => {
       setWeather(data)
       setIsLoad(false)
     })
@@ -37,13 +37,18 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({
         <WeatherCard>
           <Header>Current Weather</Header>
           <BlockFlex justifyContent={JustifyContentEnum.center}>
-            <WeatherImage
-              src={`http://openweathermap.org/img/w/${weather?.weather[0].icon}.png`}
-              alt={weather?.weather[0].description}
-            />
+            {weather && (
+              <WeatherImage
+                src={`http://openweathermap.org/img/w/${weather?.weather[0].icon}.png`}
+                alt={weather?.weather[0].description}
+              />
+            )}
             <Paragraph isTemp>{weather?.main.temp}</Paragraph>
           </BlockFlex>
-          <BlockFlex marginTop='25px' justifyContent={JustifyContentEnum.spaceEvenly}>
+          <BlockFlex
+            marginTop='25px'
+            justifyContent={JustifyContentEnum.spaceEvenly}
+          >
             <Paragraph>
               <span> Pressure: </span>
               {weather?.main.pressure} Pa

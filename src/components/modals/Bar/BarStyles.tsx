@@ -10,6 +10,7 @@ export const SelectBar = styled.aside<ForecastsSelectBarStyledProps>`
   position: fixed;
   right: -250px;
   top: 20px;
+  z-index: 10;
   padding-top: 35px;
   box-sizing: border-box;
   width: 250px;

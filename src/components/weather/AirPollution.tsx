@@ -13,7 +13,7 @@ const AirPollution: React.FC<AirPollutionProps> = ({location, forecast}) => {
   const [weather, setWeather] = useState<AirPollutionWeather | undefined>()
   useEffect(() => {
     setIsLoad(true)
-    weatherService.getAirPollution(forecast).then((data) => {
+    weatherService.getAirPollution(location).then(({data}) => {
       setWeather(data)
       setIsLoad(false)
     })
@@ -26,7 +26,7 @@ const AirPollution: React.FC<AirPollutionProps> = ({location, forecast}) => {
       ) : (
         <WeatherCard>
           <Header>Air Pollution</Header>
-          <BlockFlex justifyContent={JustifyContentEnum.spaceBetween}>
+          <BlockFlex justifyContent={JustifyContentEnum.spaceEvenly}>
             <div>
               <Paragraph margin='20px 0'>
                 <span>co: </span>

@@ -1,3 +1,5 @@
+import { GeocodingType } from "./geocoding/geocodingTypes"
+
 export enum ForecastsWeather {
   currentWeather = 'CurrentWeather',
   dailyForecastEightDays = 'DailyForecastEightDays',
@@ -14,7 +16,7 @@ export interface Forecast {
 }
 
 export interface ForecastCardProps {
-  location: string
+  location: GeocodingType
   forecast: Forecast
 }
 

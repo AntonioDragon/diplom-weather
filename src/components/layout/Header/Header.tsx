@@ -1,15 +1,60 @@
-import React from 'react'
+import React, {ChangeEvent, useCallback, useEffect, useState} from 'react'
 import Logo from '../../Logo/Logo'
-import Select from '../../ui/select/AppSelect'
 import {HeaderButton, NavStyle, HeaderStyle} from './StyleHeader'
 import {DisplayEnum} from '../../../app/styles/stylesDisplay'
+import InputSelect from '../../ui/input/InputSelect'
+import {GeocodingType} from '../../../app/geocoding/geocodingTypes'
+import {useSearchParams} from 'react-router-dom'
+import useDebounceFunction from '../../../hooks/useDebounceFunction'
+import {geocodingService} from '../../../api/geocodingService'
 
 const Header: React.FC = () => {
+  const [inputValue, setInputValue] = useState('')
+  const [list, setList] = useState<GeocodingType[]>([])
+  const [searchParams, setSearchParams] = useSearchParams()
+  const [isLoad, setIsLoad] = useState(false)
+
+  const onClickValue = useCallback(
+    (location: GeocodingType) => console.log(location),
+    []
+  )
+
+  const onChangeInputGeolocation = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setInputValue(event.target.value)
+      debounceInputSearch(event.target.value)
+    },
+    []
+  )
+
+  useEffect(() => {
+    let location = searchParams.get('location')
+    if (location) {
+      setIsLoad(true)
+      geocodingService.getLocations(location).then((data) => {
+        setList(data)
+        setIsLoad(false)
+      })
+    }
+  }, [searchParams])
+
+  const debounceInputSearch = useDebounceFunction((value: string) => {
+    if (value) setSearchParams({location: value})
+    else setSearchParams('')
+  }, 1000)
+
   return (
     <HeaderStyle>
       <Logo />
       <NavStyle display={DisplayEnum.flex}>
-        <Select label='Search' options={[0, 1, 2, 3, 4, 5]} />
+        <InputSelect
+          onChange={onChangeInputGeolocation}
+          onClick={onClickValue}
+          value={inputValue}
+          label='Search'
+          options={list}
+          isLoad={isLoad}
+        />
         <HeaderButton>
           <svg
             xmlns='http://www.w3.org/2000/svg'

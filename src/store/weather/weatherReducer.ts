@@ -15,7 +15,7 @@ const initialState: initialStateData = {
       id: 0,
       image: '',
       name: ForecastsWeather.airPollution,
-      isActive: true
+      isActive: false
     },
     {
       id: 1,
@@ -39,7 +39,7 @@ const initialState: initialStateData = {
       id: 4,
       image: '',
       name: ForecastsWeather.fiveDaysTreeHour,
-      isActive: true
+      isActive: false
     }
   ],
   activeForecasts: [
@@ -49,18 +49,6 @@ const initialState: initialStateData = {
       name: ForecastsWeather.currentWeather,
       isActive: true
     },
-    {
-      id: 4,
-      image: '',
-      name: ForecastsWeather.fiveDaysTreeHour,
-      isActive: true
-    },
-    {
-      id: 0,
-      image: '',
-      name: ForecastsWeather.airPollution,
-      isActive: true
-    }
   ]
 }
 
@@ -83,7 +71,7 @@ const weatherSlide = createSlice({
       const findForecast = state.activeForecasts.findIndex(
         (forecast) => forecast.id === action.payload
       )
-      if (findForecast) {
+      if (findForecast !== -1) {
         state.activeForecasts.splice(findForecast, 1)
       }
     },

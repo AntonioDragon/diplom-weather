@@ -57,7 +57,7 @@ const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
 
   useEffect(() => {
     setIsLoad(true)
-    weatherService.getFiveDaysThreeHour(forecast).then((data) => {
+    weatherService.getFiveDaysThreeHour(location).then(({data}) => {
       setWeather(data)
       setIsLoad(false)
     })

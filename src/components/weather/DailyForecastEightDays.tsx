@@ -61,7 +61,7 @@ const DailyForecastEightDays: React.FC<DailyForecastEightDaysProps> = ({
 
   useEffect(() => {
     setIsLoad(true)
-    weatherService.getDailyForecastEightDays(forecast).then((data) => {
+    weatherService.getDailyForecastEightDays(location).then(({data}) => {
       setWeather(data)
       setIsLoad(false)
     })

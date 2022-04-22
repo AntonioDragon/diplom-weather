@@ -1,29 +1,58 @@
-import {WeatherApiData} from '../app/appTypes'
-import {Forecast} from '../app/appWeatherTypes'
 import {axiosInstance} from '../axios'
-import currentWeatherData from './currentWeatherData.json'
-import DailyForecastEightDaysData from './dailyForecastEightDaysData.json'
-import airPollutionData from './airPollutionData.json'
-import AirPollution from '../app/weather/airPollution'
-import fiveDaysThreeHourData from './fiveDaysThreeHourData.json'
-import fiveDaysThreeHour from '../app/weather/fiveDaysThreeHour'
-import {DailyForecastEightDaysWeather} from '../app/weather/dailyForecastEightDays'
-import hourlyTwoDaysData from './hourlyTwoDays.json'
-import {HourlyTwoDaysWeather} from '../app/weather/hourlyTwoDays'
+import {GeocodingType} from '../app/geocoding/geocodingTypes'
+import currentWeather from './currentWeatherData.json'
+import hourlyTwoDays from './hourlyTwoDays.json'
+import DailyForecastEightDays from './dailyForecastEightDaysData.json'
+import FiveDaysThreeHour from './fiveDaysThreeHourData.json'
+import AirPollution from './airPollutionData.json'
 
 export const weatherService = {
-  getCurrentWeather: async (forecast: Forecast): Promise<WeatherApiData> =>
-    currentWeatherData,
-  getHourlyTwoDays: async (forecast: Forecast): Promise<HourlyTwoDaysWeather> =>
-    hourlyTwoDaysData,
-  getDailySixteenDays: async (forecast: Forecast): Promise<WeatherApiData> =>
-    currentWeatherData,
-  getDailyForecastEightDays: async (
-    forecast: Forecast
-  ): Promise<DailyForecastEightDaysWeather> => DailyForecastEightDaysData,
-  getFiveDaysThreeHour: async (
-    forecast: Forecast
-  ): Promise<fiveDaysThreeHour> => fiveDaysThreeHourData,
-  getAirPollution: async (forecast: Forecast): Promise<AirPollution> =>
-    airPollutionData
+  getCurrentWeather: async (location: GeocodingType) => ({
+    data: currentWeather
+  }),
+  // axiosInstance.get('data/2.5/weather', {
+  //   params: {
+  //     lat: location.lat,
+  //     lon: location.lon,
+  //     appid: process.env.REACT_APP_WEATHER_KEY
+  //   }
+  // }),
+  getHourlyTwoDays: async (location: GeocodingType) => ({data: hourlyTwoDays}),
+  // axiosInstance.get('data/2.5/onecall', {
+  //   params: {
+  //     lat: location.lat,
+  //     lon: location.lon,
+  //     appid: process.env.REACT_APP_WEATHER_KEY,
+  //     exclude: 'current,minutely,daily,alerts'
+  //   }
+  // }),
+  getDailyForecastEightDays: async (location: GeocodingType) => ({
+    data: DailyForecastEightDays
+  }),
+  // axiosInstance.get('data/2.5/onecall', {
+  //   params: {
+  //     lat: location.lat,
+  //     lon: location.lon,
+  //     appid: process.env.REACT_APP_WEATHER_KEY,
+  //     exclude: 'current,minutely,hourly,alerts'
+  //   }
+  // }),
+  getFiveDaysThreeHour: async (location: GeocodingType) => ({
+    data: FiveDaysThreeHour
+  }),
+  // axiosInstance.get('data/2.5/forecast', {
+  //   params: {
+  //     lat: location.lat,
+  //     lon: location.lon,
+  //     appid: process.env.REACT_APP_WEATHER_KEY
+  //   }
+  // }),
+  getAirPollution: async (location: GeocodingType) => ({data: AirPollution})
+  // axiosInstance.get('data/2.5/air_pollution', {
+  //   params: {
+  //     lat: location.lat,
+  //     lon: location.lon,
+  //     appid: process.env.REACT_APP_WEATHER_KEY
+  //   }
+  // })
 }

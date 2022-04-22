@@ -1,13 +1,21 @@
 import React, {useCallback, useState} from 'react'
-import {useAppSelector} from '../../app/appStoreHooks'
-import {getFavorites} from '../../store/weather/weatherSelectors'
+import {useAppDispatch, useAppSelector} from '../../app/appStoreHooks'
+import {GeocodingFavoriteType} from '../../app/geocoding/geocodingTypes'
+import {changeActiveLocation} from '../../store/geocoding/geocodingReducer'
+import {getGeocoding} from '../../store/geocoding/geocodingSelectors'
 import CityCard from '../ui/card/CityCard/CityCard'
 import Bar from './Bar/Bar'
 import {BarElement} from './Bar/BarStyles'
 
 const FavoritesBar: React.FC = () => {
-  const {favorites} = useAppSelector(getFavorites)
-  const onClickWeatherPreview = useCallback(() => console.log(1), [])
+  const dispatch = useAppDispatch()
+  const {geocodingFavorites} = useAppSelector(getGeocoding)
+
+  const onClickWeatherPreview = useCallback(
+    (favorite: GeocodingFavoriteType) =>
+      dispatch(changeActiveLocation(favorite)),
+    [dispatch]
+  )
 
   const [isActive, setIsActive] = useState(false)
 
@@ -18,9 +26,12 @@ const FavoritesBar: React.FC = () => {
 
   return (
     <Bar onSetIsActive={onSetActiveFavorite} isActive={isActive} isLeft>
-      {favorites.map((favorite) => (
+      {geocodingFavorites.map((favorite) => (
         <BarElement key={favorite.id}>
-          <CityCard {...favorite} onClick={onClickWeatherPreview} />
+          <CityCard
+            {...favorite}
+            onClick={() => onClickWeatherPreview(favorite)}
+          />
         </BarElement>
       ))}
     </Bar>
