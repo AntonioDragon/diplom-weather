@@ -5,7 +5,7 @@ import AppButton from '../../ui/button/AppButton'
 
 export const HeaderStyle = styled.header`
   position: absolute;
-  z-index: 2;
+  z-index: 12;
   padding: 0 30px;
   box-sizing: border-box;
   display: flex;

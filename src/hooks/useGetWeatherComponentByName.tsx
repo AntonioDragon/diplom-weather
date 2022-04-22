@@ -1,12 +1,13 @@
 import {useCallback} from 'react'
 import {Forecast, ForecastsWeather} from '../app/appWeatherTypes'
+import { GeocodingType } from '../app/geocoding/geocodingTypes'
 import AirPollution from '../components/weather/AirPollution'
 import CurrentWeather from '../components/weather/CurrentWeather'
 import DailyForecastEightDays from '../components/weather/DailyForecastEightDays'
 import FiveDaysTreeHour from '../components/weather/FiveDaysTreeHour'
 import HourlyTwoDays from '../components/weather/HourlyTwoDays'
 
-const useGetWeatherComponent = ({location}: {location: string}) => {
+const useGetWeatherComponent = ({location}: {location: GeocodingType}) => {
   const getWeatherByNameAndLocation = useCallback(
     (forecast: Forecast) => {
       if (forecast.name === ForecastsWeather.currentWeather)

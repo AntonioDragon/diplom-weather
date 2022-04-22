@@ -1,0 +1,88 @@
+[
+  {
+    "name": "Zaporizhzhia",
+    "local_names": {
+      "hu": "Zaporizzsja",
+      "be": "Запарожжа",
+      "uk": "Запоріжжя",
+      "lv": "Zaporižja",
+      "cs": "Záporoží",
+      "pt": "Zaporizhzhya",
+      "zh": "扎波里日扎",
+      "nl": "Zaporizja",
+      "en": "Zaporizhzhia",
+      "sr": "Запорожје",
+      "eo": "Zaporiĵo",
+      "tr": "Zaporijjia",
+      "de": "Saporischschja",
+      "es": "Zaporiyia",
+      "pl": "Zaporoże",
+      "fr": "Zaporijia",
+      "lt": "Zaporižia",
+      "ar": "زاباروجيا",
+      "sk": "Zaporižžia",
+      "ru": "Запорожье",
+      "et": "Zaporižžja",
+      "ko": "자포리자",
+      "sh": "Zaporižja",
+      "az": "Zaporojya",
+      "hr": "Zaporižžja"
+    },
+    "lat": 47.8507859,
+    "lon": 35.1182867,
+    "country": "UA",
+    "state": "Zaporizhia Oblast"
+  },
+  {
+    "name": "Zaporizhzhia",
+    "local_names": {
+      "en": "Zaporizhzhia",
+      "lt": "Zaporožė",
+      "ru": "Запорожье",
+      "uk": "Запоріжжя"
+    },
+    "lat": 48.2571,
+    "lon": 38.72475,
+    "country": "UA",
+    "state": "Luhansk Oblast"
+  },
+  {
+    "name": "Zaporizhzhia",
+    "local_names": {
+      "en": "Zaporizhzhia",
+      "lt": "Zaporožė",
+      "ru": "Запорожье",
+      "uk": "Запоріжжя"
+    },
+    "lat": 48.1053608,
+    "lon": 37.0011772,
+    "country": "UA",
+    "state": "Donetsk Oblast"
+  },
+  {
+    "name": "Zaporizhzhia",
+    "local_names": {
+      "en": "Zaporizhzhia",
+      "lt": "Zaporožė",
+      "ru": "Запорожье",
+      "uk": "Запоріжжя"
+    },
+    "lat": 48.562321,
+    "lon": 33.738331,
+    "country": "UA",
+    "state": "Dnipropetrovsk Oblast"
+  },
+  {
+    "name": "Zaporizhzhia",
+    "local_names": {
+      "uk": "Запоріжжя",
+      "en": "Zaporizhzhia",
+      "lt": "Zaporožė",
+      "ru": "Запорожье"
+    },
+    "lat": 48.728142,
+    "lon": 33.20446,
+    "country": "UA",
+    "state": "Kirovohrad Oblast"
+  }
+]

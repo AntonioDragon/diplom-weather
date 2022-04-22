@@ -1,14 +1,14 @@
 import React from 'react'
-import {FavoriteData} from '../../../../app/appTypes'
+import { GeocodingFavoriteType } from '../../../../app/geocoding/geocodingTypes'
 import {Card, CardBlock, CardButton, CardParagraph} from './CityCardStyles'
 
-interface CityCardProps extends FavoriteData {
+interface CityCardProps extends GeocodingFavoriteType {
   onClick: () => void
 }
 
-const CityCard: React.FC<CityCardProps> = ({name, lat, lon}) => {
+const CityCard: React.FC<CityCardProps> = ({name, lat, lon, onClick}) => {
   return (
-    <Card>
+    <Card onClick={onClick}>
       <CardBlock width='90%'>
         <CardParagraph>{name}</CardParagraph>
         <CardParagraph>{`${lat} ${lon}`}</CardParagraph>

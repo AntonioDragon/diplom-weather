@@ -6,6 +6,7 @@ declare module 'styled-components' {
       primary?: string
       secondary?: string
       tertiary?: string
+      hover?: string
       quaternary?: string
       white?: string
       black?: string

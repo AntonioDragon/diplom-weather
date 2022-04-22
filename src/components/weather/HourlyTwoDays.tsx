@@ -53,7 +53,7 @@ const HourlyTwoDays: React.FC<HourlyTwoDaysProps> = ({location, forecast}) => {
 
   useEffect(() => {
     setIsLoad(true)
-    weatherService.getHourlyTwoDays(forecast).then((data) => {
+    weatherService.getHourlyTwoDays(location).then(({data}) => {
       setWeather(data)
       setIsLoad(false)
     })

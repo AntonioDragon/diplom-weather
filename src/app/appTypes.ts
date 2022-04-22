@@ -1,9 +1,4 @@
-export interface FavoriteData {
-  id?: number
-  name: string
-  lat: string
-  lon: string
-}
+
 
 export interface Weather {
   id: number
