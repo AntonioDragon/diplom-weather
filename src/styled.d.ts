@@ -11,5 +11,14 @@ declare module 'styled-components' {
       white?: string
       black?: string
     }
+    text_color: {
+      primary?: string
+      secondary?: string
+      tertiary?: string
+      hover?: string
+      quaternary?: string
+      white?: string
+      black?: string
+    }
   }
 }

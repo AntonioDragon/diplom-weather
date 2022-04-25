@@ -1,13 +1,17 @@
 import React from 'react'
+import {ThemeProvider} from 'styled-components'
+import {useAppSelector} from '../app/appStoreHooks'
 import Header from '../components/layout/Header/Header'
 import FavoritesBar from '../components/modals/FavoritesBar'
 import ForecastsBar from '../components/modals/ForecastsBar'
 import Portal from '../components/modals/Portal'
 import Forecast from '../components/section/ForecastWeather/Forecast'
+import {getTheme} from '../store/theme/themeSlice'
 
-const Main = () => {
+const Main: React.FC = () => {
+  const theme = useAppSelector(getTheme)
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Header />
       <Portal>
         <FavoritesBar />
@@ -16,7 +20,7 @@ const Main = () => {
       <main>
         <Forecast />
       </main>
-    </>
+    </ThemeProvider>
   )
 }
 

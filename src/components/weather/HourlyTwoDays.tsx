@@ -5,6 +5,7 @@ import {ForecastCardProps} from '../../app/appWeatherTypes'
 import {HourlyTwoDaysWeather} from '../../app/weather/hourlyTwoDays'
 import Loader from '../ui/loader/Loader'
 import SliderCardHourlyTwoDays from './slider/Card/SliderCardHourlyTwoDays'
+import SliderDot from './slider/Dots/SliderDot'
 import {Header, WeatherCard} from './style/CardWeatherStyle'
 
 const responsive = {
@@ -75,6 +76,10 @@ const HourlyTwoDays: React.FC<HourlyTwoDaysProps> = ({location, forecast}) => {
               'mobile',
               'mobile_small'
             ]}
+            showDots={true}
+            customDot={<SliderDot />}
+            renderDotsOutside={true}
+            dotListClass={'dots'}
           >
             {weather?.hourly.map((hourlyWeather) => (
               <SliderCardHourlyTwoDays

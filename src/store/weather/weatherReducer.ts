@@ -48,7 +48,7 @@ const initialState: initialStateData = {
       image: '',
       name: ForecastsWeather.currentWeather,
       isActive: true
-    },
+    }
   ]
 }
 
@@ -86,19 +86,32 @@ const weatherSlide = createSlice({
       const forecastIndex = state.forecasts.findIndex(
         (forecast) => forecast.id === action.payload.id
       )
+      const findForecast = state.activeForecasts.findIndex(
+        (forecast) => forecast.id === action.payload.id
+      )
       if (state.forecasts[forecastIndex].isActive) {
-        const findForecast = state.activeForecasts.findIndex(
-          (forecast) => forecast.id === action.payload.id
-        )
         state.activeForecasts.splice(findForecast, 1)
       }
+      console.log(
+        findForecast,
+        action.payload.idElement!,
+        action.payload.idElement! - 1
+      )
       switch (action.payload.position) {
         case DropPosition.top: {
-          state.activeForecasts.splice(
-            action.payload.idElement!,
-            0,
-            state.forecasts[forecastIndex]
-          )
+          if (findForecast !== -1 && findForecast < action.payload.idElement!) {
+            state.activeForecasts.splice(
+              action.payload.idElement! - 1,
+              0,
+              state.forecasts[forecastIndex]
+            )
+          } else {
+            state.activeForecasts.splice(
+              action.payload.idElement!,
+              0,
+              state.forecasts[forecastIndex]
+            )
+          }
           state.forecasts[forecastIndex].isActive = true
           break
         }

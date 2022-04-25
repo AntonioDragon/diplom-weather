@@ -3,10 +3,20 @@ import {DefaultTheme} from 'styled-components'
 export const defaultPalette = {
   getThemeDefault: (): DefaultTheme => ({
     colors: {
-      primary: '#9DC1BD',
-      secondary: '#086784',
-      tertiary: '#294549',
-      quaternary: '#DEAB68',
+      primary: '#C2D2F2',
+      secondary: '#327AD9',
+      tertiary: '#5B92D9',
+      quaternary: '#6E8C03',
+      hover: '#465902',
+      white: '#ffffff',
+      black: '#000000'
+    },
+    text_color: {
+      primary: '#C2D2F2',
+      secondary: '#327AD9',
+      tertiary: '#5B92D9',
+      quaternary: '#6E8C03',
+      hover: '#465902',
       white: '#ffffff',
       black: '#000000'
     }

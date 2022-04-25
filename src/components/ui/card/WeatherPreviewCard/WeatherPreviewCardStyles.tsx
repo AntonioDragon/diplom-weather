@@ -13,20 +13,19 @@ export const ButtonCheckbox = styled(AppButton)<ButtonCheckboxStyledProps>`
   background-color: transparent;
   & svg {
     & * {
-      fill: #ffffff;
+      fill: ${({theme}) => theme.colors.white || '#ffffff'};
       transition: 0.3s all ease-out;
     }
   }
   &:hover {
     & svg * {
-      fill: #ff4a16;
+      fill: ${({theme}) => theme.colors.hover || '#ff4a16'};
     }
   }
 `
 
 export const PreviewCard = styled.div`
   position: relative;
-  margin-left: 10px;
   min-width: 200px;
   height: 200px;
 `
@@ -34,7 +33,8 @@ export const PreviewCard = styled.div`
 export const WrapperImage = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #32a852;
+  border-radius: 25px;
+  background-color: ${({theme}) => theme.colors.tertiary || '#121212'};
 `
 
 export const Paragraph = styled.p`
@@ -43,4 +43,5 @@ export const Paragraph = styled.p`
   font-size: 18px;
   width: 100%;
   text-align: center;
+  color: ${({theme}) => theme.text_color.primary || '#ffffff'};
 `

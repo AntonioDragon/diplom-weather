@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const SliderCard = styled.div`
   box-sizing: border-box;
-  background-color: rgb(33, 150, 243);
+  background-color: ${({theme}) => theme.colors.secondary};
   height: 180px;
   width: 90%;
   border-radius: 4px;
@@ -17,22 +17,23 @@ export const SliderIcon = styled.svg`
   height: 20px;
   margin-right: 5px;
   & * {
-    fill: rgb(0, 30, 60);
+    fill: ${({theme}) => theme.colors.quaternary};
   }
 `
 
 export const SliderParagraph = styled.p`
   margin: 2px 0 0 0;
-  color: #ffffff;
+  color: ${({theme}) => theme.text_color.white};
   line-height: 150%;
   & span {
     font-weight: 700;
-    color: rgb(0, 30, 60);
+    color: ${({theme}) => theme.text_color.tertiary};
   }
 `
 
 export const SliderHeader = styled.h4`
   margin: 0;
+  color: ${({theme}) => theme.text_color.tertiary};
 `
 export const SliderImage = styled.img`
   width: 60px;
@@ -51,13 +52,13 @@ export const SliderDotButton = styled.button<SliderDotButtonStyledProps>`
   width: 6px;
   height: 6px;
   border: none;
-  background-color: #ffffff;
+  background-color: ${({theme}) => theme.colors.secondary || '#ffffff'};
   border-radius: 50%;
   transition: all 0.4s ease-out;
-  ${({isActive}) =>
+  ${({isActive, theme}) =>
     isActive &&
     `
-  background-color: #ffffff;
+  background-color: ${theme.colors.white || '#ffffff'};;
   width: 12px;
   border-radius: 100px;
   `}

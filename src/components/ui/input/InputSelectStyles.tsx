@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import {StyleProps} from '../../../app/styles/styleProps'
-import {JustifyContentEnum} from '../../../app/styles/stylesDisplay'
 
 interface InputSelectWrapperStyledProps extends StyleProps {}
 
@@ -13,10 +12,13 @@ export const Input = styled.input`
   padding: 10px 5px;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.87);
+  border: 2px solid;
+  border-color: ${({theme}) => theme.colors.quaternary};
   border-radius: 4px;
   transition: 0.3s all ease-out;
   background-color: transparent;
+  outline: none;
+  color: ${({theme}) => theme.text_color.quaternary};
 `
 interface InputLabelProps {
   isActive?: boolean
@@ -31,14 +33,14 @@ export const InputLabel = styled.label<InputLabelProps>`
   left: 15px;
   font-size: 16px;
   transition: 0.3s all ease-out;
-  color: #ffffff;
-  ${({isActive}) =>
+  color: ${({theme}) => theme.text_color.quaternary};
+  ${({isActive, theme}) =>
     isActive &&
     `
         font-size: 12px;
         top: -2px;
         left:0;
-        background-color: #121212;
+        background-color: ${theme.colors.primary || '#121212'};
         background-image: linear-gradient( rgba(255,255,255,0.09), rgba(255,255,255,0.09) );
     `};
   ${({isArrow}) =>
@@ -60,7 +62,8 @@ export const Arrow = styled.svg<ArrowStyledProps>`
   height: 24px;
   width: 24px;
   & * {
-    stroke: #ffffff;
+    stroke: ${({theme}) => theme.colors.white || '#ffffff'};
+    fill: ${({theme}) => theme.colors.tertiary || '#ffffff'};
   }
   transition: 0.3s all ease-out;
   ${({isActive}) =>
@@ -83,7 +86,7 @@ export const SelectList = styled.ul<SelectListStyledProps>`
   overflow: hidden;
   border: none;
   border-radius: 0 0 4px 4px;
-  background-color: #121212;
+  background-color: ${({theme}) => theme.colors.primary || '#121212'};
   box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px -1px,
     rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
   background-image: linear-gradient(
@@ -96,13 +99,12 @@ export const SelectList = styled.ul<SelectListStyledProps>`
     `
     height:auto;
     max-height: 200px;
-    border: 1px solid rgba(255, 255, 255, 0.87);
   `}
 `
 
 export const SelectListElement = styled.li`
   width: 100%;
-  background-color: #121212;
+  background-color: ${({theme}) => theme.colors.secondary || '#121212'};
   background-image: linear-gradient(
     rgba(255, 255, 255, 0.09),
     rgba(255, 255, 255, 0.09)

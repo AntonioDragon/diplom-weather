@@ -5,6 +5,7 @@ import {ForecastCardProps} from '../../app/appWeatherTypes'
 import fiveDaysThreeHourWeather from '../../app/weather/fiveDaysThreeHour'
 import Loader from '../ui/loader/Loader'
 import SliderCardWeather from './slider/Card/SliderCardHour'
+import SliderDot from './slider/Dots/SliderDot'
 import {Header, WeatherCard} from './style/CardWeatherStyle'
 
 const responsive = {
@@ -79,6 +80,10 @@ const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
               'mobile',
               'mobile_small'
             ]}
+            dotListClass={'dots'}
+            customDot={<SliderDot />}
+            showDots={true}
+            renderDotsOutside={true}
           >
             {weather?.list.map((dayWeather) => (
               <SliderCardWeather key={dayWeather.dt} weather={dayWeather} />
