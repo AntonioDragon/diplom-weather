@@ -25,12 +25,14 @@ export enum ThemePaletteEnum {
   snow = 'snow',
   storm = 'storm',
   thunderstorm = 'thunderstorm',
-  windy = 'windy'
+  windy = 'windy',
+  black = 'black',
+  default = 'default'
 }
 
 const themesWether = {
-  getThemeSun: (): DefaultTheme => {
-    switch (getPartOfTheDay()) {
+  getThemeSun: (date?:PartDay): DefaultTheme => {
+    switch (date || date || getPartOfTheDay()) {
       case PartDay.afternoon:
         return SunPalette.getAfternoonThemeSun()
       case PartDay.evening:
@@ -43,8 +45,8 @@ const themesWether = {
         return defaultPalette.getThemeDefault()
     }
   },
-  getThemeCloud: (): DefaultTheme => {
-    switch (getPartOfTheDay()) {
+  getThemeCloud: (date?:PartDay): DefaultTheme => {
+    switch (date || getPartOfTheDay()) {
       case PartDay.afternoon:
         return CloudPalette.getAfternoonThemeCloud()
       case PartDay.evening:
@@ -57,8 +59,8 @@ const themesWether = {
         return defaultPalette.getThemeDefault()
     }
   },
-  getThemeRain: (): DefaultTheme => {
-    switch (getPartOfTheDay()) {
+  getThemeRain: (date?:PartDay): DefaultTheme => {
+    switch (date || getPartOfTheDay()) {
       case PartDay.afternoon:
         return RainPalette.getAfternoonThemeRain()
       case PartDay.evening:
@@ -71,8 +73,8 @@ const themesWether = {
         return defaultPalette.getThemeDefault()
     }
   },
-  getThemeFog: (): DefaultTheme => {
-    switch (getPartOfTheDay()) {
+  getThemeFog: (date?:PartDay): DefaultTheme => {
+    switch (date || getPartOfTheDay()) {
       case PartDay.afternoon:
         return FogPalette.getAfternoonThemeFog()
       case PartDay.evening:
@@ -85,8 +87,8 @@ const themesWether = {
         return defaultPalette.getThemeDefault()
     }
   },
-  getThemeHail: (): DefaultTheme => {
-    switch (getPartOfTheDay()) {
+  getThemeHail: (date?:PartDay): DefaultTheme => {
+    switch (date || getPartOfTheDay()) {
       case PartDay.afternoon:
         return HailPalette.getAfternoonThemeHail()
       case PartDay.evening:
@@ -99,8 +101,8 @@ const themesWether = {
         return defaultPalette.getThemeDefault()
     }
   },
-  getThemeIce: (): DefaultTheme => {
-    switch (getPartOfTheDay()) {
+  getThemeIce: (date?:PartDay): DefaultTheme => {
+    switch (date || getPartOfTheDay()) {
       case PartDay.afternoon:
         return IcePalette.getAfternoonThemeIce()
       case PartDay.evening:
@@ -113,8 +115,8 @@ const themesWether = {
         return defaultPalette.getThemeDefault()
     }
   },
-  getThemeDownpour: (): DefaultTheme => {
-    switch (getPartOfTheDay()) {
+  getThemeDownpour: (date?:PartDay): DefaultTheme => {
+    switch (date || getPartOfTheDay()) {
       case PartDay.afternoon:
         return DownpourPalette.getAfternoonThemeDownpour()
       case PartDay.evening:
@@ -127,8 +129,8 @@ const themesWether = {
         return defaultPalette.getThemeDefault()
     }
   },
-  getThemeSnow: (): DefaultTheme => {
-    switch (getPartOfTheDay()) {
+  getThemeSnow: (date?:PartDay): DefaultTheme => {
+    switch (date || getPartOfTheDay()) {
       case PartDay.afternoon:
         return SnowPalette.getAfternoonThemeSnow()
       case PartDay.evening:
@@ -141,8 +143,8 @@ const themesWether = {
         return defaultPalette.getThemeDefault()
     }
   },
-  getThemeStorm: (): DefaultTheme => {
-    switch (getPartOfTheDay()) {
+  getThemeStorm: (date?:PartDay): DefaultTheme => {
+    switch (date || getPartOfTheDay()) {
       case PartDay.afternoon:
         return StormPalette.getAfternoonThemeStorm()
       case PartDay.evening:
@@ -155,8 +157,8 @@ const themesWether = {
         return defaultPalette.getThemeDefault()
     }
   },
-  getThemeThunderstorm: (): DefaultTheme => {
-    switch (getPartOfTheDay()) {
+  getThemeThunderstorm: (date?:PartDay): DefaultTheme => {
+    switch (date || getPartOfTheDay()) {
       case PartDay.afternoon:
         return ThunderstormPalette.getAfternoonThemeThunderstorm()
       case PartDay.evening:
@@ -169,8 +171,8 @@ const themesWether = {
         return defaultPalette.getThemeDefault()
     }
   },
-  getThemeWindy: (): DefaultTheme => {
-    switch (getPartOfTheDay()) {
+  getThemeWindy: (date?:PartDay): DefaultTheme => {
+    switch (date || getPartOfTheDay()) {
       case PartDay.afternoon:
         return WindyPalette.getAfternoonThemeWindy()
       case PartDay.evening:
@@ -183,8 +185,8 @@ const themesWether = {
         return defaultPalette.getThemeDefault()
     }
   },
-  defaultTheme: (): DefaultTheme => defaultPalette.getThemeDefault(),
-  defaultBlackTheme: (): DefaultTheme =>
+  defaultTheme: (date?:PartDay): DefaultTheme => defaultPalette.getThemeDefault(),
+  defaultBlackTheme: (date?:PartDay): DefaultTheme =>
     defaultPaletteBlack.getThemeDefaultBlack()
 }
 
