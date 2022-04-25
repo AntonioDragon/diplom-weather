@@ -19,6 +19,10 @@ export const DownpourPalette = {
       hover: '#FEB41C',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getEveningThemeDownpour: (): DefaultTheme => ({
@@ -39,6 +43,10 @@ export const DownpourPalette = {
       hover: '#41a9f3',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getMorningThemeDownpour: (): DefaultTheme => ({
@@ -59,6 +67,10 @@ export const DownpourPalette = {
       hover: '#4B5F6D',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getNightThemeDownpour: (): DefaultTheme => ({
@@ -79,6 +91,10 @@ export const DownpourPalette = {
       hover: '#4B5F6D',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
 }

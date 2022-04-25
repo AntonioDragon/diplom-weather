@@ -19,6 +19,10 @@ export const StormPalette = {
       hover: '#A68877',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getEveningThemeStorm: (): DefaultTheme => ({
@@ -39,6 +43,10 @@ export const StormPalette = {
       hover: '#a17054',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getMorningThemeStorm: (): DefaultTheme => ({
@@ -59,6 +67,10 @@ export const StormPalette = {
       hover: '#bf7b53',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getNightThemeStorm: (): DefaultTheme => ({
@@ -79,6 +91,10 @@ export const StormPalette = {
       hover: '#8a5b40',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   })
 }

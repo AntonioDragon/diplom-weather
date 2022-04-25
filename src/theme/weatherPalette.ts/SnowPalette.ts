@@ -19,6 +19,10 @@ export const SnowPalette = {
       hover: '#DCEAF2',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getEveningThemeSnow: (): DefaultTheme => ({
@@ -39,6 +43,10 @@ export const SnowPalette = {
       hover: '#4fafea',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getMorningThemeSnow: (): DefaultTheme => ({
@@ -59,6 +67,10 @@ export const SnowPalette = {
       hover: '#58b8f4',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getNightThemeSnow: (): DefaultTheme => ({
@@ -79,6 +91,10 @@ export const SnowPalette = {
       hover: '#DCEAF2',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   })
 }

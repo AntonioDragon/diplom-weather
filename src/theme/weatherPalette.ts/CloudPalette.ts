@@ -7,7 +7,7 @@ export const CloudPalette = {
       secondary: '#595959',
       tertiary: '#D9D9D9',
       quaternary: '#BABDBF',
-      hover: '#F2F2F2',
+      hover: '#762610',
       white: '#ffffff',
       black: '#000000'
     },
@@ -16,9 +16,13 @@ export const CloudPalette = {
       secondary: '#87898C',
       tertiary: '#D9D9D9',
       quaternary: '#BABDBF',
-      hover: '#F2F2F2',
+      hover: '#762610',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getEveningThemeCloud: (): DefaultTheme => ({
@@ -27,7 +31,7 @@ export const CloudPalette = {
       secondary: '#6f6f6f',
       tertiary: '#b5adad',
       quaternary: '#656a6c',
-      hover: '#f4f1f1',
+      hover: '#762610',
       white: '#ffffff',
       black: '#000000'
     },
@@ -36,9 +40,13 @@ export const CloudPalette = {
       secondary: '#6f6f6f',
       tertiary: '#b5adad',
       quaternary: '#656a6c',
-      hover: '#f4f1f1',
+      hover: '#762610',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getMorningThemeCloud: (): DefaultTheme => ({
@@ -47,7 +55,7 @@ export const CloudPalette = {
       secondary: '#716a6a',
       tertiary: '#D9D9D9',
       quaternary: '#BABDBF',
-      hover: '#F2F2F2',
+      hover: '#762610',
       white: '#ffffff',
       black: '#000000'
     },
@@ -56,9 +64,13 @@ export const CloudPalette = {
       secondary: '#716a6a',
       tertiary: '#D9D9D9',
       quaternary: '#BABDBF',
-      hover: '#F2F2F2',
+      hover: '#762610',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getNightThemeCloud: (): DefaultTheme => ({
@@ -67,7 +79,7 @@ export const CloudPalette = {
       secondary: '#434242',
       tertiary: '#999090',
       quaternary: '#5b6063',
-      hover: '#fbe7e7',
+      hover: '#762610',
       white: '#ffffff',
       black: '#000000'
     },
@@ -76,9 +88,13 @@ export const CloudPalette = {
       secondary: '#434242',
       tertiary: '#999090',
       quaternary: '#282b2c',
-      hover: '#fbe7e7',
+      hover: '#762610',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   })
 }

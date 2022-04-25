@@ -19,6 +19,10 @@ export const ThunderstormPalette = {
       hover: '#ce7629',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getEveningThemeThunderstorm: (): DefaultTheme => ({
@@ -39,6 +43,10 @@ export const ThunderstormPalette = {
       hover: '#F28B30',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getMorningThemeThunderstorm: (): DefaultTheme => ({
@@ -59,6 +67,10 @@ export const ThunderstormPalette = {
       hover: '#ca8142',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getNightThemeThunderstorm: (): DefaultTheme => ({
@@ -79,6 +91,10 @@ export const ThunderstormPalette = {
       hover: '#ed7812',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   })
 }

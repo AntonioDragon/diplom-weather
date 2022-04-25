@@ -1,6 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {DefaultTheme} from 'styled-components'
-import { PartDay } from '../../theme/getPartOfTheDay'
 import themeProvider from '../../theme/themeProvider'
 import { ThemePaletteEnum } from '../../theme/themesWether'
 interface initialStateData {

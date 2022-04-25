@@ -19,6 +19,10 @@ export const WindyPalette = {
       hover: '#D9D1BA',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getEveningThemeWindy: (): DefaultTheme => ({
@@ -39,6 +43,10 @@ export const WindyPalette = {
       hover: '#c5b78e',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getMorningThemeWindy: (): DefaultTheme => ({
@@ -59,6 +67,10 @@ export const WindyPalette = {
       hover: '#eae2cb',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getNightThemeWindy: (): DefaultTheme => ({
@@ -79,6 +91,10 @@ export const WindyPalette = {
       hover: '#c5b176',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   })
 }

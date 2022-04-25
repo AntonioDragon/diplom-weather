@@ -94,22 +94,22 @@ export const ButtonFavorite = styled.button<ButtonFavoriteStyledProps>`
   & svg {
     & * {
       transition: 0.3s all ease-out;
-      fill: #ffffff;
+      fill: ${({theme}) => theme.color_star.inactive || '#ffffff'};
     }
   }
   &:hover {
     & svg {
       & * {
-        fill: #ff4a16;
+        fill: ${({theme}) => theme.colors.hover || '#ff4a16'};
       }
     }
   }
-  ${({isActive}) =>
+  ${({isActive, theme}) =>
     isActive &&
     `
     & svg {
       & *{
-        fill: #e9ff1f;
+        fill: ${theme.color_star.active || '#e9ff1f'};
       }
     }
     `};
@@ -130,7 +130,7 @@ export const ForecastNotFoundParagraph = styled.p`
 
 export const ForecastTitle = styled.h1`
   margin: 0 0 0 -10px;
-  color: #ffffff;
+  color: ${({theme}) => theme.text_color.white};
   & span {
     margin-left: 10px;
   }

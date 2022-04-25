@@ -19,6 +19,10 @@ export const RainPalette = {
       hover: '#A0F2EA',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff'
     }
   }),
   getEveningThemeRain: (): DefaultTheme => ({
@@ -39,6 +43,10 @@ export const RainPalette = {
       hover: '#A0F2EA',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff'
     }
   }),
   getMorningThemeRain: (): DefaultTheme => ({
@@ -59,6 +67,10 @@ export const RainPalette = {
       hover: '#80f3e7',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff'
     }
   }),
   getNightThemeRain: (): DefaultTheme => ({
@@ -79,6 +91,10 @@ export const RainPalette = {
       hover: '#6ecac1',
       white: '#ffffff',
       black: '#000000'
-    } 
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff'
+    }
   })
 }

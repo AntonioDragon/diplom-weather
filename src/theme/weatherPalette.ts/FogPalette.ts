@@ -19,6 +19,10 @@ export const FogPalette = {
       hover: '#F4F7F0',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getEveningThemeFog: (): DefaultTheme => ({
@@ -39,6 +43,10 @@ export const FogPalette = {
       hover: '#d1dfbd',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getMorningThemeFog: (): DefaultTheme => ({
@@ -59,6 +67,10 @@ export const FogPalette = {
       hover: '#F4F7F0',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getNightThemeFog: (): DefaultTheme => ({
@@ -79,6 +91,10 @@ export const FogPalette = {
       hover: '#d1dfbd',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   })
 }
