@@ -5,6 +5,7 @@ import {ForecastCardProps} from '../../app/appWeatherTypes'
 import {DailyForecastEightDaysWeather} from '../../app/weather/dailyForecastEightDays'
 import Loader from '../ui/loader/Loader'
 import SliderCardDay from './slider/Card/SliderCardDay'
+import SliderDot from './slider/Dots/SliderDot'
 import {Header, WeatherCard} from './style/CardWeatherStyle'
 
 //https://api.openweathermap.org/data/2.5/onecall?lat=-0.1964&lon=51.5095&exclude=current,minutely,hourly,alerts&appid=2e520548e365d2804c02e48c9cae65a0
@@ -83,6 +84,10 @@ const DailyForecastEightDays: React.FC<DailyForecastEightDaysProps> = ({
               'mobile',
               'mobile_small'
             ]}
+            dotListClass={'dots'}
+            customDot={<SliderDot />}
+            showDots={true}
+            renderDotsOutside={true}
           >
             {weather?.daily.map((dayWeather) => (
               <SliderCardDay key={dayWeather.dt} weather={dayWeather} />

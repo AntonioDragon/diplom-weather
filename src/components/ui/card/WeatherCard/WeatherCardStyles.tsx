@@ -29,7 +29,8 @@ export const CardTitle = styled.h3`
   margin: 0;
   font-size: 12px;
   font-weight: 700;
-  color: ${({theme}) => theme.text_color.secondary || 'rgba(#ffffff, 0.2)'};
+  color: ${({theme}) => theme.text_color.primary || '#ffffff'};
+  opacity: 0.5;
 `
 
 export const WeatherCardBlock = styled.div`

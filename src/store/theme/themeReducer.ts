@@ -1,12 +1,13 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {DefaultTheme} from 'styled-components'
 import themeProvider from '../../theme/themeProvider'
+import { ThemePaletteEnum } from '../../theme/themesWether'
 interface initialStateData {
   theme: DefaultTheme
 }
 
 const initialState: initialStateData = {
-  theme: themeProvider.getThemeByName()
+  theme: themeProvider.getThemeByName(ThemePaletteEnum.sun)
 }
 
 

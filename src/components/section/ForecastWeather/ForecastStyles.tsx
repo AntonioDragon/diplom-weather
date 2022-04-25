@@ -5,7 +5,7 @@ export const ForecastSection = styled.section`
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
-  background-color: ${({theme}) => theme.colors.primary || '#121212'};
+  background-color: ${({theme}) => theme.colors.secondary || '#121212'};
   @media (max-width: 992px) {
     padding: 100px 40px 0 40px;
   }
@@ -16,21 +16,16 @@ interface DropZoneProps {
 }
 
 export const DropZoneTop = styled.div<DropZoneProps>`
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  z-index: 2;
-  transform: translateX(-50%);
   box-sizing: border-box;
   width: 100%;
   height: 40px;
   transition: 0.3s all ease-out;
+  background-color: ${({theme}) => theme.colors.tertiary || 'rgb(0, 30, 60)'};
   ${({isActive, theme}) =>
     isActive &&
     `
     height: 70px;
-    background-color: ${theme.colors.tertiary};
-    opacity: 0.2;
+    background-color: ${theme.colors.quaternary};
   `}
 `
 

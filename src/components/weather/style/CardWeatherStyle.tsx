@@ -8,20 +8,20 @@ interface WeatherCardStyledProps {
 
 export const WeatherCard = styled.div<WeatherCardStyledProps>`
   position: relative;
-  padding: ${({padding}) => padding || '10px 20px'};
+  padding: ${({padding}) => padding || '0 20px 10px 20px'};
   box-sizing: border-box;
   height: 250px;
-  border-radius: 4px;
-  background-color: ${({theme}) => theme.colors.primary || 'rgb(0, 30, 60)'};
+  border-radius: 0 0 4px 4px;
+  background-color: ${({theme}) => theme.colors.tertiary || 'rgb(0, 30, 60)'};
 `
 
 export const MapWrapper = styled.div``
 
 export const Header = styled.h3`
-  margin: 5px 0;
+  margin: 0 0 10px 0;
   color: #ffffff;
   text-align: center;
-  color: #66d9ef;
+  color: ${({theme}) => theme.text_color.primary || '#66d9ef'};
 `
 
 export const WeatherImage = styled.img`
@@ -45,10 +45,10 @@ interface ParagraphStyledProps extends StyleProps {
 
 export const Paragraph = styled.p<ParagraphStyledProps>`
   margin: ${({margin}) => margin || '5px 0 0 0'};
-  color: #ffffff;
+  color: ${({theme}) => theme.text_color.white || '#ffffff'};
   & span {
     font-weight: 700;
-    color: #757ce8;
+    color: ${({theme}) => theme.text_color.primary || '#757ce8'};
   }
   ${({isTemp}) =>
     isTemp &&

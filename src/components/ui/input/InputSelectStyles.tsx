@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import {StyleProps} from '../../../app/styles/styleProps'
-import {JustifyContentEnum} from '../../../app/styles/stylesDisplay'
 
 interface InputSelectWrapperStyledProps extends StyleProps {}
 
@@ -13,10 +12,13 @@ export const Input = styled.input`
   padding: 10px 5px;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.87);
+  border: 2px solid;
+  border-color: ${({theme}) => theme.colors.quaternary};
   border-radius: 4px;
   transition: 0.3s all ease-out;
   background-color: transparent;
+  outline: none;
+  color: ${({theme}) => theme.colors.quaternary};
 `
 interface InputLabelProps {
   isActive?: boolean
@@ -31,14 +33,14 @@ export const InputLabel = styled.label<InputLabelProps>`
   left: 15px;
   font-size: 16px;
   transition: 0.3s all ease-out;
-  color: #ffffff;
+  color: ${({theme}) => theme.text_color.quaternary};
   ${({isActive, theme}) =>
     isActive &&
     `
         font-size: 12px;
         top: -2px;
         left:0;
-        background-color: ${theme.colors.primary  || '#121212'};
+        background-color: ${theme.colors.primary || '#121212'};
         background-image: linear-gradient( rgba(255,255,255,0.09), rgba(255,255,255,0.09) );
     `};
   ${({isArrow}) =>
@@ -60,8 +62,8 @@ export const Arrow = styled.svg<ArrowStyledProps>`
   height: 24px;
   width: 24px;
   & * {
-    stroke: #ffffff;
-    fill: #ffffff;
+    stroke: ${({theme}) => theme.colors.tertiary || '#ffffff'};
+    fill: ${({theme}) => theme.colors.tertiary || '#ffffff'};
   }
   transition: 0.3s all ease-out;
   ${({isActive}) =>
@@ -97,7 +99,6 @@ export const SelectList = styled.ul<SelectListStyledProps>`
     `
     height:auto;
     max-height: 200px;
-    border: 1px solid rgba(255, 255, 255, 0.87);
   `}
 `
 
