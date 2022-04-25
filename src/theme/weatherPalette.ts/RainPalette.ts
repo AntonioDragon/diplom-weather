@@ -14,7 +14,7 @@ export const RainPalette = {
     text_color: {
       primary: '#2e539e',
       secondary: '#368ABF',
-      tertiary: '#2983A6',
+      tertiary: '#052d62',
       quaternary: '#5EADBF',
       hover: '#A0F2EA',
       white: '#ffffff',
@@ -38,7 +38,7 @@ export const RainPalette = {
     text_color: {
       primary: '#273859',
       secondary: '#368ABF',
-      tertiary: '#2983A6',
+      tertiary: '#052d62',
       quaternary: '#5EADBF',
       hover: '#A0F2EA',
       white: '#ffffff',
@@ -62,7 +62,7 @@ export const RainPalette = {
     text_color: {
       primary: '#114c71',
       secondary: '#3192ce',
-      tertiary: '#22566b',
+      tertiary: '#052d62',
       quaternary: '#1c343a',
       hover: '#80f3e7',
       white: '#ffffff',
@@ -86,7 +86,7 @@ export const RainPalette = {
     text_color: {
       primary: '#0e1d39',
       secondary: '#064165',
-      tertiary: '#104d66',
+      tertiary: '#052d62',
       quaternary: '#277182',
       hover: '#6ecac1',
       white: '#ffffff',

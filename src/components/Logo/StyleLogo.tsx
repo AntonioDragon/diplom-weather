@@ -10,7 +10,7 @@ export const StyledParagraph = styled.p`
   width: 100%;
   font-family: 'Bon-Foyage';
   font-size: 25px;
-  color: #ffffff;
+  color: ${({theme}) => theme.text_color.tertiary || '#ffffff'};
 `
 
 export const StyledLogoImage = styled.img`

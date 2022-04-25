@@ -92,11 +92,6 @@ const weatherSlide = createSlice({
       if (state.forecasts[forecastIndex].isActive) {
         state.activeForecasts.splice(findForecast, 1)
       }
-      console.log(
-        findForecast,
-        action.payload.idElement!,
-        action.payload.idElement! - 1
-      )
       switch (action.payload.position) {
         case DropPosition.top: {
           if (findForecast !== -1 && findForecast < action.payload.idElement!) {

@@ -14,7 +14,7 @@ export const FogPalette = {
     text_color: {
       primary: '#3b5155',
       secondary: '#aad0d3',
-      tertiary: '#7ea2b2',
+      tertiary: '#82b6cc',
       quaternary: '#f3e2b4',
       hover: '#F4F7F0',
       white: '#ffffff',
@@ -38,7 +38,7 @@ export const FogPalette = {
     text_color: {
       primary: '#08414b',
       secondary: '#638587',
-      tertiary: '#5e8393',
+      tertiary: '#82b6cc',
       quaternary: '#d7ccab',
       hover: '#d1dfbd',
       white: '#ffffff',
@@ -62,7 +62,7 @@ export const FogPalette = {
     text_color: {
       primary: '#F4F7F0',
       secondary: '#C9D7D8',
-      tertiary: '#9BABB2',
+      tertiary: '#82b6cc',
       quaternary: '#F2EEE3',
       hover: '#F4F7F0',
       white: '#ffffff',
@@ -86,7 +86,7 @@ export const FogPalette = {
     text_color: {
       primary: '#08414b',
       secondary: '#638587',
-      tertiary: '#5e8393',
+      tertiary: '#82b6cc',
       quaternary: '#d7ccab',
       hover: '#d1dfbd',
       white: '#ffffff',
