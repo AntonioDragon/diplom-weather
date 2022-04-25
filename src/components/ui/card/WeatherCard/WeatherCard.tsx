@@ -25,6 +25,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
   forecast,
   idElement
 }) => {
+  
   const dispatch = useAppDispatch()
   const getForecast = useGetWeatherComponent({location})
 
@@ -46,6 +47,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
     }),
     []
   )
+
   return (
     <>
       <DropZoneTop ref={dropTop} isActive={isOverTop} />

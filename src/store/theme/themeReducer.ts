@@ -9,6 +9,7 @@ const initialState: initialStateData = {
   theme: themeProvider.getThemeByName()
 }
 
+
 const themeSlide = createSlice({
   name: 'theme',
   initialState,

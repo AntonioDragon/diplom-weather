@@ -11,12 +11,12 @@ export const CardButton = styled.button`
   opacity: 0;
   transition: 0.3s all ease-out;
   & svg * {
-    fill: #ffffff;
+    fill: ${({theme}) => theme.colors.white || '#ffffff'};
     transition: 0.3s all ease-out;
   }
   &:hover {
     & * {
-      fill: #ff4a16;
+      fill: ${({theme}) => theme.colors.hover || '#ff4a16'};
     }
   }
 `
@@ -28,8 +28,8 @@ export const CardTitle = styled.h3`
   z-index: 5;
   margin: 0;
   font-size: 12px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  color: ${({theme}) => theme.text_color.secondary || 'rgba(#ffffff, 0.2)'};
 `
 
 export const WeatherCardBlock = styled.div`
@@ -45,40 +45,4 @@ export const WeatherCardBlock = styled.div`
       opacity: 1;
     }
   }
-`
-
-interface DropZoneProps {
-  isActive: boolean
-}
-
-export const DropZoneLeft = styled.div<DropZoneProps>`
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 100%;
-  transition: 1s all ease-out;
-  ${({isActive}) =>
-    isActive &&
-    `
-    width: 70px;
-    background-color: rgba(255, 0, 41,0.2);
-  `};
-`
-
-export const DropZoneRight = styled.div<DropZoneProps>`
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 100%;
-  transition: 1s all ease-out;
-  ${({isActive}) =>
-    isActive &&
-    `
-  width: 70px;
-  background-color: rgba(255, 0, 255,0.2);
-`};
 `

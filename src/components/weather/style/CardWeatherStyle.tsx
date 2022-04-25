@@ -12,7 +12,7 @@ export const WeatherCard = styled.div<WeatherCardStyledProps>`
   box-sizing: border-box;
   height: 250px;
   border-radius: 4px;
-  background-color: rgb(0, 30, 60);
+  background-color: ${({theme}) => theme.colors.primary || 'rgb(0, 30, 60)'};
 `
 
 export const MapWrapper = styled.div``

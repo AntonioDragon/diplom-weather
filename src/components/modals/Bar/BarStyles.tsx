@@ -15,7 +15,7 @@ export const SelectBar = styled.aside<ForecastsSelectBarStyledProps>`
   box-sizing: border-box;
   width: 250px;
   height: 100vh;
-  background-color: rgb(18, 18, 18);
+  background-color: ${({theme}) => theme.colors.primary || '#121212'};
   box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
     rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
   background-image: linear-gradient(
@@ -28,10 +28,10 @@ export const SelectBar = styled.aside<ForecastsSelectBarStyledProps>`
     width: 8px;
   }
   &::-webkit-scrollbar-track {
-    background-color: #121212;
+    background-color: ${({theme}) => theme.colors.primary || '#121212'};
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #333333;
+    background-color: ${({theme}) => theme.colors.secondary || '#333333'};
   }
   ${({isLeft}) =>
     isLeft &&
@@ -59,8 +59,8 @@ export const BarElement = styled.li`
   margin-top: 10px;
   padding: 10px 10px;
   list-style-type: none;
-  background-color: rgb(18, 18, 18);
-  color: rgb(255, 255, 255);
+  background-color: ${({theme}) => theme.colors.tertiary || 'rgb(18, 18, 18)'};
+  color: ${({theme}) => theme.text_color.primary || '#ffffff'};
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 20%) 0px 3px 3px -2px,
     rgb(0 0 0 / 14%) 0px 3px 4px 0px, rgb(0 0 0 / 12%) 0px 1px 8px 0px;
@@ -85,7 +85,7 @@ export const BarButton = styled(AppButton)<ForecastsButtonStyledProps>`
   height: 200px;
   border: none;
   border-radius: 50% 0 0 50%;
-  background-color: #121212;
+  background-color: ${({theme}) => theme.colors.primary || '#121212'};
   box-shadow: rgb(0 0 0 / 20%) 0px 3px 5px -1px,
     rgb(0 0 0 / 14%) 0px 6px 10px 0px, rgb(0 0 0 / 12%) 0px 1px 18px 0px;
   background-image: linear-gradient(
@@ -97,8 +97,8 @@ export const BarButton = styled(AppButton)<ForecastsButtonStyledProps>`
     transform: rotate(-180deg);
     transition: 0.7s all ease-out;
     & * {
-      stroke: #ffffff;
-      fill: #ffffff;
+      stroke: ${({theme}) => theme.colors.secondary || '#ffffff'};
+      fill: ${({theme}) => theme.colors.secondary || '#ffffff'};
     }
   }
   ${({isLeft}) =>

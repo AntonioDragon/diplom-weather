@@ -5,7 +5,7 @@ export const ForecastSection = styled.section`
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
-  background-color: #121212;
+  background-color: ${({theme}) => theme.colors.primary || '#121212'};
   @media (max-width: 992px) {
     padding: 100px 40px 0 40px;
   }
@@ -25,11 +25,12 @@ export const DropZoneTop = styled.div<DropZoneProps>`
   width: 100%;
   height: 40px;
   transition: 0.3s all ease-out;
-  ${({isActive}) =>
+  ${({isActive, theme}) =>
     isActive &&
     `
     height: 70px;
-    background-color: rgba(50, 130, 41, 0.2);
+    background-color: ${theme.colors.tertiary};
+    opacity: 0.2;
   `}
 `
 
@@ -37,11 +38,11 @@ export const DropZoneBottom = styled.div<DropZoneProps>`
   width: 100%;
   height: 30px;
   transition: 0.3s all ease-out;
-  ${({isActive}) =>
+  ${({isActive, theme}) =>
     isActive &&
     `
     height: 70px;
-    background-color: rgba(0, 129, 141,0.2);
+    background-color: rgba(${theme.colors.quaternary},0.2);
   `};
 `
 
@@ -52,7 +53,7 @@ export const ForecastWeatherList = styled.ul`
   width: 100%;
   max-height: 100%;
   overflow: auto;
-  background-color: rgb(18, 18, 18);
+  background-color: ${({theme}) => theme.colors.primary || '#121212'};
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 20%) 0px 11px 15px -7px,
     rgb(0 0 0 / 14%) 0px 24px 38px 3px, rgb(0 0 0 / 12%) 0px 9px 46px 8px;
@@ -64,10 +65,10 @@ export const ForecastWeatherList = styled.ul`
     width: 8px;
   }
   &::-webkit-scrollbar-track {
-    background-color: #333333;
+    background-color: ${({theme}) => theme.colors.secondary || '#333333'};
   }
   &::-webkit-scrollbar-thumb {
-    background-color: rgb(0, 30, 60);
+    background-color: ${({theme}) => theme.colors.primary || 'rgb(0, 30, 60)'};
   }
 `
 

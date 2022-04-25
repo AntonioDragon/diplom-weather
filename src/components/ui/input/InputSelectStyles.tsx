@@ -32,13 +32,13 @@ export const InputLabel = styled.label<InputLabelProps>`
   font-size: 16px;
   transition: 0.3s all ease-out;
   color: #ffffff;
-  ${({isActive}) =>
+  ${({isActive, theme}) =>
     isActive &&
     `
         font-size: 12px;
         top: -2px;
         left:0;
-        background-color: #121212;
+        background-color: ${theme.colors.primary  || '#121212'};
         background-image: linear-gradient( rgba(255,255,255,0.09), rgba(255,255,255,0.09) );
     `};
   ${({isArrow}) =>
@@ -61,6 +61,7 @@ export const Arrow = styled.svg<ArrowStyledProps>`
   width: 24px;
   & * {
     stroke: #ffffff;
+    fill: #ffffff;
   }
   transition: 0.3s all ease-out;
   ${({isActive}) =>
@@ -83,7 +84,7 @@ export const SelectList = styled.ul<SelectListStyledProps>`
   overflow: hidden;
   border: none;
   border-radius: 0 0 4px 4px;
-  background-color: #121212;
+  background-color: ${({theme}) => theme.colors.primary || '#121212'};
   box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px -1px,
     rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
   background-image: linear-gradient(
@@ -102,7 +103,7 @@ export const SelectList = styled.ul<SelectListStyledProps>`
 
 export const SelectListElement = styled.li`
   width: 100%;
-  background-color: #121212;
+  background-color: ${({theme}) => theme.colors.secondary || '#121212'};
   background-image: linear-gradient(
     rgba(255, 255, 255, 0.09),
     rgba(255, 255, 255, 0.09)
