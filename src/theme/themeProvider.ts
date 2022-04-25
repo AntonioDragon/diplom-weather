@@ -10,6 +10,22 @@ const themeProvider = {
         return themesWether.getThemeRain()
       case ThemePaletteEnum.sun:
         return themesWether.getThemeSun()
+      case ThemePaletteEnum.fog:
+        return themesWether.getThemeFog()
+      case ThemePaletteEnum.hail:
+        return themesWether.getThemeHail()
+      case ThemePaletteEnum.ice:
+        return themesWether.getThemeIce()
+      case ThemePaletteEnum.downpour:
+        return themesWether.getThemeDownpour()
+      case ThemePaletteEnum.snow:
+        return themesWether.getThemeSnow()
+      case ThemePaletteEnum.storm:
+        return themesWether.getThemeStorm()
+      case ThemePaletteEnum.thunderstorm:
+        return themesWether.getThemeThunderstorm()
+      case ThemePaletteEnum.windy:
+        return themesWether.getThemeWindy()
       default:
         return themesWether.defaultTheme()
     }

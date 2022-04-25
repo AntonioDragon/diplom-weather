@@ -33,7 +33,7 @@ export const SliderParagraph = styled.p`
 
 export const SliderHeader = styled.h4`
   margin: 0;
-  color: ${({theme}) => theme.colors.tertiary};
+  color: ${({theme}) => theme.text_color.tertiary};
 `
 export const SliderImage = styled.img`
   width: 60px;

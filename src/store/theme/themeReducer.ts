@@ -7,7 +7,7 @@ interface initialStateData {
 }
 
 const initialState: initialStateData = {
-  theme: themeProvider.getThemeByName(ThemePaletteEnum.sun)
+  theme: themeProvider.getThemeByName(ThemePaletteEnum.windy)
 }
 
 

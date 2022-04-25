@@ -44,7 +44,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
         isOver: !!monitor.isOver()
       })
     }),
-    []
+    [idElement]
   )
 
   return (

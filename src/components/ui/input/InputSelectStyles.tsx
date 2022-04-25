@@ -18,7 +18,7 @@ export const Input = styled.input`
   transition: 0.3s all ease-out;
   background-color: transparent;
   outline: none;
-  color: ${({theme}) => theme.colors.quaternary};
+  color: ${({theme}) => theme.text_color.quaternary};
 `
 interface InputLabelProps {
   isActive?: boolean
@@ -62,7 +62,7 @@ export const Arrow = styled.svg<ArrowStyledProps>`
   height: 24px;
   width: 24px;
   & * {
-    stroke: ${({theme}) => theme.colors.tertiary || '#ffffff'};
+    stroke: ${({theme}) => theme.colors.white || '#ffffff'};
     fill: ${({theme}) => theme.colors.tertiary || '#ffffff'};
   }
   transition: 0.3s all ease-out;

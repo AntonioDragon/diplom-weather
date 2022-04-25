@@ -45,7 +45,7 @@ export const HeaderButton = styled(AppButton)`
     & svg {
       transform: rotate(360deg);
       & * {
-        fill: ${({theme})=> theme.colors.tertiary || '#ff4a16'};
+        fill: ${({theme})=> theme.colors.hover || '#ff4a16'};
       }
     }
   }
