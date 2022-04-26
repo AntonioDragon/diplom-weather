@@ -1,8 +1,15 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useMemo, useState} from 'react'
 import {weatherService} from '../../api/weatherService'
+import {useAppDispatch, useAppSelector} from '../../app/appStoreHooks'
 import {WeatherApiData} from '../../app/appTypes'
 import {ForecastCardProps} from '../../app/appWeatherTypes'
 import {JustifyContentEnum} from '../../app/styles/stylesDisplay'
+import useGetStyleByWeather from '../../hooks/useGetStyleByWeather'
+import {
+  changeAdaptiveTheme,
+  changeThemeByWether
+} from '../../store/theme/themeReducer'
+import {getIsThemeAdaptive, getThemeOptions} from '../../store/theme/themeSlice'
 import Loader from '../ui/loader/Loader'
 import {
   WeatherCard,
@@ -18,16 +25,43 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   location,
   forecast
 }) => {
+  const dispatch = useAppDispatch()
+  const isThemeAdaptive = useAppSelector(getIsThemeAdaptive)
+  const themeOptions = useAppSelector(getThemeOptions)
   const [isLoad, setIsLoad] = useState(false)
   const [weather, setWeather] = useState<WeatherApiData>()
+  const getWeather = useGetStyleByWeather()
+
+  const themeAdaptive = useMemo(
+    () =>
+      isThemeAdaptive && weather && themeOptions[2].isActive
+        ? getWeather(weather)
+        : null,
+    [weather, isThemeAdaptive, getWeather, themeOptions]
+  )
 
   useEffect(() => {
-    setIsLoad(true)
-    weatherService.getCurrentWeather(location).then(({data}) => {
-      setWeather(data)
-      setIsLoad(false)
-    })
+    dispatch(changeAdaptiveTheme(true))
+    return () => {
+      dispatch(changeAdaptiveTheme(false))
+    }
   }, [])
+
+  useEffect(() => {
+    if (themeAdaptive) {
+      dispatch(changeThemeByWether(themeAdaptive))
+    }
+  }, [themeAdaptive])
+
+  useEffect(() => {
+    if (location) {
+      setIsLoad(true)
+      weatherService.getCurrentWeather(location).then(({data}) => {
+        setWeather(data)
+        setIsLoad(false)
+      })
+    }
+  }, [location])
 
   return (
     <>

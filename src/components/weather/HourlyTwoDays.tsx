@@ -58,7 +58,7 @@ const HourlyTwoDays: React.FC<HourlyTwoDaysProps> = ({location, forecast}) => {
       setWeather(data)
       setIsLoad(false)
     })
-  }, [])
+  }, [location])
 
   return (
     <>

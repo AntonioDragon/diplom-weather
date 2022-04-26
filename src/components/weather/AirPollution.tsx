@@ -17,7 +17,7 @@ const AirPollution: React.FC<AirPollutionProps> = ({location, forecast}) => {
       setWeather(data)
       setIsLoad(false)
     })
-  }, [])
+  }, [location])
 
   return (
     <>

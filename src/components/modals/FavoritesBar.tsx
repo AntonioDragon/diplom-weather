@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react'
 import {useAppDispatch, useAppSelector} from '../../app/appStoreHooks'
-import {GeocodingFavoriteType} from '../../app/geocoding/geocodingTypes'
+import {GeocodingType} from '../../app/geocoding/geocodingTypes'
 import {changeActiveLocation} from '../../store/geocoding/geocodingReducer'
 import {getGeocoding} from '../../store/geocoding/geocodingSelectors'
 import CityCard from '../ui/card/CityCard/CityCard'
@@ -12,7 +12,7 @@ const FavoritesBar: React.FC = () => {
   const {geocodingFavorites} = useAppSelector(getGeocoding)
 
   const onClickWeatherPreview = useCallback(
-    (favorite: GeocodingFavoriteType) =>
+    (favorite: GeocodingType) =>
       dispatch(changeActiveLocation(favorite)),
     [dispatch]
   )

@@ -1,8 +1,8 @@
 import React from 'react'
-import { GeocodingFavoriteType } from '../../../../app/geocoding/geocodingTypes'
+import {GeocodingType} from '../../../../app/geocoding/geocodingTypes'
 import {Card, CardBlock, CardButton, CardParagraph} from './CityCardStyles'
 
-interface CityCardProps extends GeocodingFavoriteType {
+interface CityCardProps extends GeocodingType {
   onClick: () => void
 }
 
@@ -11,7 +11,9 @@ const CityCard: React.FC<CityCardProps> = ({name, lat, lon, onClick}) => {
     <Card onClick={onClick}>
       <CardBlock width='90%'>
         <CardParagraph>{name}</CardParagraph>
-        <CardParagraph>{`${lat} ${lon}`}</CardParagraph>
+        <CardParagraph>{`${Math.trunc(lat * 100) / 100} ${
+          Math.trunc(lon * 100) / 100
+        }`}</CardParagraph>
       </CardBlock>
       <CardButton>
         <svg

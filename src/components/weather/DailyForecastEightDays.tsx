@@ -66,7 +66,7 @@ const DailyForecastEightDays: React.FC<DailyForecastEightDaysProps> = ({
       setWeather(data)
       setIsLoad(false)
     })
-  }, [])
+  }, [location])
 
   return (
     <>
