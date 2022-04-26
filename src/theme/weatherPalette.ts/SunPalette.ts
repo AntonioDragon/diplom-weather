@@ -19,6 +19,10 @@ export const SunPalette = {
       hover: '#F25E5E',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getEveningThemeSun: (): DefaultTheme => ({
@@ -39,6 +43,10 @@ export const SunPalette = {
       hover: '#f54646',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getMorningThemeSun: (): DefaultTheme => ({
@@ -59,6 +67,10 @@ export const SunPalette = {
       hover: '#f13737',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getNightThemeSun: (): DefaultTheme => ({
@@ -79,6 +91,10 @@ export const SunPalette = {
       hover: '#ea3232',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   })
 }

@@ -6,8 +6,8 @@ export const defaultPalette = {
       primary: '#C2D2F2',
       secondary: '#327AD9',
       tertiary: '#5B92D9',
-      quaternary: '#6E8C03',
-      hover: '#465902',
+      quaternary: '#520ab0',
+      hover: '#2a0657',
       white: '#ffffff',
       black: '#000000'
     },
@@ -15,10 +15,14 @@ export const defaultPalette = {
       primary: '#C2D2F2',
       secondary: '#327AD9',
       tertiary: '#5B92D9',
-      quaternary: '#6E8C03',
-      hover: '#465902',
+      quaternary: '#520ab0',
+      hover: '#2a0657',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
-  }),
+  })
 }

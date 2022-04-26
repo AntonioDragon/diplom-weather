@@ -1,5 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit'
 import geocodingReducer from './geocoding/geocodingReducer'
+import languagesReducer from './languages/languagesReducer'
 import themeReducer from './theme/themeReducer'
 import weatherReducer from './weather/weatherReducer'
 
@@ -7,7 +8,8 @@ const store = configureStore({
   reducer: {
     theme: themeReducer,
     weather: weatherReducer,
-    geocoding: geocodingReducer
+    geocoding: geocodingReducer,
+    languages: languagesReducer
   }
 })
 

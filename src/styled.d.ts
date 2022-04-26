@@ -20,5 +20,9 @@ declare module 'styled-components' {
       white?: string
       black?: string
     }
+    color_star: {
+      active?: string
+      inactive?: string
+    }
   }
 }

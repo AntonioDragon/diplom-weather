@@ -19,6 +19,10 @@ export const IcePalette = {
       hover: '#AEDFF2',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getEveningThemeIce: (): DefaultTheme => ({
@@ -39,6 +43,10 @@ export const IcePalette = {
       hover: '#90d8f5',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getMorningThemeIce: (): DefaultTheme => ({
@@ -59,6 +67,10 @@ export const IcePalette = {
       hover: '#76b9d3',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getNightThemeIce: (): DefaultTheme => ({
@@ -79,6 +91,10 @@ export const IcePalette = {
       hover: '#90d8f5',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   })
 }

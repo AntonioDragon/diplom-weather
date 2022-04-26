@@ -10,6 +10,7 @@ import {getTheme} from '../store/theme/themeSlice'
 
 const Main: React.FC = () => {
   const theme = useAppSelector(getTheme)
+  console.log(theme)
   return (
     <ThemeProvider theme={theme}>
       <Header />

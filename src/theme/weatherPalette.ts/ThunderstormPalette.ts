@@ -14,11 +14,15 @@ export const ThunderstormPalette = {
     text_color: {
       primary: '#0f3684',
       secondary: '#0e6398',
-      tertiary: '#417ca1',
+      tertiary: '#590e81',
       quaternary: '#e7b457',
       hover: '#ce7629',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getEveningThemeThunderstorm: (): DefaultTheme => ({
@@ -34,11 +38,15 @@ export const ThunderstormPalette = {
     text_color: {
       primary: '#32508C',
       secondary: '#0F3D59',
-      tertiary: '#417FA6',
+      tertiary: '#590e81',
       quaternary: '#F2B441',
       hover: '#F28B30',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getMorningThemeThunderstorm: (): DefaultTheme => ({
@@ -54,11 +62,15 @@ export const ThunderstormPalette = {
     text_color: {
       primary: '#274580',
       secondary: '#1d435b',
-      tertiary: '#466d85',
+      tertiary: '#590e81',
       quaternary: '#cea24f',
       hover: '#ca8142',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getNightThemeThunderstorm: (): DefaultTheme => ({
@@ -74,11 +86,15 @@ export const ThunderstormPalette = {
     text_color: {
       primary: '#153a85',
       secondary: '#063857',
-      tertiary: '#2c77a5',
+      tertiary: '#590e81',
       quaternary: '#eda31a',
       hover: '#ed7812',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   })
 }

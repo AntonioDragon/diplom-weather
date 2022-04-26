@@ -62,7 +62,7 @@ const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
       setWeather(data)
       setIsLoad(false)
     })
-  }, [])
+  }, [location])
 
   return (
     <>

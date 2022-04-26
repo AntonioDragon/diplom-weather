@@ -7,15 +7,25 @@ import {GeocodingType} from '../../../app/geocoding/geocodingTypes'
 import {useSearchParams} from 'react-router-dom'
 import useDebounceFunction from '../../../hooks/useDebounceFunction'
 import {geocodingService} from '../../../api/geocodingService'
+import Portal from '../../modals/Portal'
+import Options from '../../modals/Options/Options'
+import { useAppDispatch } from '../../../app/appStoreHooks'
+import { changeActiveLocation } from '../../../store/geocoding/geocodingReducer'
 
 const Header: React.FC = () => {
+  const dispatch = useAppDispatch()
   const [inputValue, setInputValue] = useState('')
+  const [isActiveOptionBar, setIsActiveOptionBar] = useState(false)
   const [list, setList] = useState<GeocodingType[]>([])
   const [searchParams, setSearchParams] = useSearchParams()
   const [isLoad, setIsLoad] = useState(false)
 
+  const onChangeStateOptionBar = useCallback((state: boolean) => {
+    setIsActiveOptionBar(state)
+  }, [])
+
   const onClickValue = useCallback(
-    (location: GeocodingType) => console.log(location),
+    (location: GeocodingType) => dispatch(changeActiveLocation(location)),
     []
   )
 
@@ -31,7 +41,7 @@ const Header: React.FC = () => {
     let location = searchParams.get('location')
     if (location) {
       setIsLoad(true)
-      geocodingService.getLocations(location).then((data) => {
+      geocodingService.getLocations(location).then(({data}) => {
         setList(data)
         setIsLoad(false)
       })
@@ -45,6 +55,12 @@ const Header: React.FC = () => {
 
   return (
     <HeaderStyle>
+      <Portal>
+        <Options
+          isActive={isActiveOptionBar}
+          onChange={onChangeStateOptionBar}
+        />
+      </Portal>
       <Logo />
       <NavStyle display={DisplayEnum.flex}>
         <InputSelect
@@ -55,7 +71,9 @@ const Header: React.FC = () => {
           options={list}
           isLoad={isLoad}
         />
-        <HeaderButton>
+        <HeaderButton
+          handler={() => onChangeStateOptionBar(!isActiveOptionBar)}
+        >
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'

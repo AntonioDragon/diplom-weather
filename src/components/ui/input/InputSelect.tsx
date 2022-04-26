@@ -33,7 +33,6 @@ const InputSelect: React.FC<InputSelectProps> = ({
 }) => {
   const [isInputFocus, setIsInputFocus] = useState(false)
   const selectElement = useRef<HTMLDivElement>(null)
-  console.log(options)
   useClickOutside(selectElement.current!, () => setIsInputFocus(false))
 
   return (

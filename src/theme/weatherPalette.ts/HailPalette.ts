@@ -19,6 +19,10 @@ export const HailPalette = {
       hover: '#024873',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getEveningThemeHail: (): DefaultTheme => ({
@@ -39,6 +43,10 @@ export const HailPalette = {
       hover: '#76b9d3',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getMorningThemeHail: (): DefaultTheme => ({
@@ -59,6 +67,10 @@ export const HailPalette = {
       hover: '#76b9d3',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   }),
   getNightThemeHail: (): DefaultTheme => ({
@@ -79,6 +91,10 @@ export const HailPalette = {
       hover: '#76b9d3',
       white: '#ffffff',
       black: '#000000'
+    },
+    color_star: {
+      active: '#ff4a16',
+      inactive: '#ffffff',
     }
   })
 }
