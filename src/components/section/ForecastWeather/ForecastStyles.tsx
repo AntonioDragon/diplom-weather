@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const ForecastSection = styled.section`
+interface ForecastSectionStyledProps {
+  image?: string
+}
+
+export const ForecastSection = styled.section<ForecastSectionStyledProps>`
   padding: 140px 100px 20px 100px;
   width: 100vw;
   height: 100vh;
@@ -12,6 +16,24 @@ export const ForecastSection = styled.section`
   @media (max-width: 675px) {
     padding: 160px 10px 0 10px;
   }
+  ${({image}) =>
+    image &&
+    `
+    &:before{
+      content: '';
+      position:absolute;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      background-image: url('.${image}');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
+      opacity: 0.5;
+    }
+    
+  `}
 `
 
 interface DropZoneProps {

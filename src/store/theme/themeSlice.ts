@@ -4,4 +4,7 @@ export const getTheme = (state: RootState) => state.theme.theme
 
 export const getThemeOptions = (state: RootState) => state.theme.themesOptions
 
-export const getIsThemeAdaptive = (state: RootState) => state.theme.isThemeAdaptive
+export const getIsThemeAdaptive = (state: RootState) =>
+  state.theme.isThemeAdaptive
+
+export const getThemeName = (state: RootState) => state.theme.themeName

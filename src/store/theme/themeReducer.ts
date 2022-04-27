@@ -12,12 +12,14 @@ interface OptionData {
 
 interface initialStateData {
   theme: DefaultTheme
+  themeName: ThemePaletteEnum
   isThemeAdaptive: boolean
   themesOptions: OptionData[]
 }
 
 const initialState: initialStateData = {
   theme: themeProvider.getThemeByName(),
+  themeName: ThemePaletteEnum.default,
   isThemeAdaptive: false,
   themesOptions: [
     {
@@ -47,6 +49,9 @@ const themeSlide = createSlice({
   reducers: {
     changeThemeByWether: (state, action: PayloadAction<ThemePaletteEnum>) => {
       state.theme = themeProvider.getThemeByName(action.payload)
+    },
+    changeThemeName: (state, action: PayloadAction<ThemePaletteEnum>) => {
+      state.themeName = action.payload
     },
     changeOptionTheme: (state, action: PayloadAction<number>) => {
       state.themesOptions.map((option) => (option.isActive = false))
@@ -78,7 +83,7 @@ const themeSlide = createSlice({
   }
 })
 
-export const {changeAdaptiveTheme, changeOptionTheme, changeThemeByWether} =
+export const {changeAdaptiveTheme, changeOptionTheme, changeThemeByWether, changeThemeName} =
   themeSlide.actions
 
 export default themeSlide.reducer

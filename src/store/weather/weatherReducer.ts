@@ -3,13 +3,11 @@ import {Forecast, ForecastsWeather} from '../../app/appWeatherTypes'
 import {DropPosition} from '../../components/dnd/dropPosition'
 
 interface initialStateData {
-  weather: {}
   forecasts: Forecast[]
   activeForecasts: Forecast[]
 }
 
 const initialState: initialStateData = {
-  weather: {},
   forecasts: [
     {
       id: 0,
