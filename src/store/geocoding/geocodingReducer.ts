@@ -217,7 +217,7 @@ const initialState: initialStateData = {
       lon: 16.4870549,
       country: 'PL',
       state: 'Lower Silesian Voivodeship'
-    }
+    },
   ],
   geocodingSearch: []
 }

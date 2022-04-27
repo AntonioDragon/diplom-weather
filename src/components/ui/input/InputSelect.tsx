@@ -36,7 +36,7 @@ const InputSelect: React.FC<InputSelectProps> = ({
   useClickOutside(selectElement.current!, () => setIsInputFocus(false))
 
   return (
-    <InputSelectWrapper width='400px' ref={selectElement}>
+    <InputSelectWrapper ref={selectElement}>
       <InputLabel htmlFor='input' isActive={isInputFocus || !!value}>
         {label}
       </InputLabel>

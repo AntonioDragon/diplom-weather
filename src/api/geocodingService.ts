@@ -3,8 +3,8 @@ import {axiosInstance} from '../axios'
 import geocodingData from './geocodingData.json'
 
 export const geocodingService = {
-  getLocations: async (location: string) =>
-    axiosInstance.get('http://api.openweathermap.org/geo/1.0/direct', {
-      params: {q: location, appid: process.env.REACT_APP_WEATHER_KEY}
-    })
+  getLocations: async (location: string) => ({data: geocodingData})
+  // axiosInstance.get('http://api.openweathermap.org/geo/1.0/direct', {
+  //   params: {q: location, appid: process.env.REACT_APP_WEATHER_KEY}
+  // })
 }

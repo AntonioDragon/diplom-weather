@@ -7,7 +7,10 @@ export const ForecastSection = styled.section`
   box-sizing: border-box;
   background-color: ${({theme}) => theme.colors.secondary || '#121212'};
   @media (max-width: 992px) {
-    padding: 100px 40px 0 40px;
+    padding: 125px 40px 0 40px;
+  }
+  @media (max-width: 675px) {
+    padding: 160px 10px 0 10px;
   }
 `
 
@@ -58,6 +61,9 @@ export const ForecastWeatherList = styled.ul`
   );
   &::-webkit-scrollbar {
     width: 8px;
+    @media (max-width: 675px) {
+      width: 3px;
+    }
   }
   &::-webkit-scrollbar-track {
     background-color: ${({theme}) => theme.colors.secondary || '#333333'};
@@ -77,10 +83,18 @@ export const ForecastWeatherElement = styled.li`
 export const Location = styled.div`
   position: absolute;
   top: 80px;
+  left: 0;
+  padding-left: 30px;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
+  @media (max-width: 675px) {
+    top: 105px;
+    padding: 0;
+    justify-content: center;
+  }
 `
 
 interface ButtonFavoriteStyledProps {
@@ -133,5 +147,8 @@ export const ForecastTitle = styled.h1`
   color: ${({theme}) => theme.text_color.white};
   & span {
     margin-left: 10px;
+  }
+  @media (max-width: 675px) {
+    font-size: 18px;
   }
 `

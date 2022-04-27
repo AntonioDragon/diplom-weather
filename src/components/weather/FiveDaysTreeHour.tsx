@@ -80,10 +80,6 @@ const FiveDaysTreeHour: React.FC<FiveDaysTreeHourProps> = ({
               'mobile',
               'mobile_small'
             ]}
-            dotListClass={'dots'}
-            customDot={<SliderDot />}
-            showDots={true}
-            renderDotsOutside={true}
           >
             {weather?.list.map((dayWeather) => (
               <SliderCardWeather key={dayWeather.dt} weather={dayWeather} />

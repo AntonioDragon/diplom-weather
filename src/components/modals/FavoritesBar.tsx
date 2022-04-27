@@ -10,14 +10,15 @@ import {BarElement} from './Bar/BarStyles'
 const FavoritesBar: React.FC = () => {
   const dispatch = useAppDispatch()
   const {geocodingFavorites} = useAppSelector(getGeocoding)
+  const [isActive, setIsActive] = useState(false)
 
   const onClickWeatherPreview = useCallback(
-    (favorite: GeocodingType) =>
-      dispatch(changeActiveLocation(favorite)),
+    (favorite: GeocodingType) => {
+      dispatch(changeActiveLocation(favorite))
+      setIsActive(false)
+    },
     [dispatch]
   )
-
-  const [isActive, setIsActive] = useState(false)
 
   const onSetActiveFavorite = useCallback(
     (state: boolean) => setIsActive(state),

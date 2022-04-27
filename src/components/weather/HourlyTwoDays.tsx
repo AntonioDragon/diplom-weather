@@ -76,10 +76,6 @@ const HourlyTwoDays: React.FC<HourlyTwoDaysProps> = ({location, forecast}) => {
               'mobile',
               'mobile_small'
             ]}
-            showDots={true}
-            customDot={<SliderDot />}
-            renderDotsOutside={true}
-            dotListClass={'dots'}
           >
             {weather?.hourly.map((hourlyWeather) => (
               <SliderCardHourlyTwoDays
