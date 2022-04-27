@@ -57,3 +57,28 @@ export const Paragraph = styled.p<ParagraphStyledProps>`
     font-size: 24px;
   `}
 `
+
+export const ButtonRefresh = styled.button`
+  position: absolute;
+  right: 5px;
+  top: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  & svg * {
+    fill: ${({theme}) => theme.colors.white || '#ffffff'};
+    transition: 0.3s all ease-out;
+  }
+  &:hover {
+    & * {
+      fill: ${({theme}) => theme.colors.hover || '#ff4a16'};
+    }
+  }
+`
+
+export const WrapperLoader = styled.div`
+  position: relative;
+  width: 100%;
+  height: 290px;
+  background-color: ${({theme}) => theme.colors.tertiary || 'rgb(0, 30, 60)'};
+`

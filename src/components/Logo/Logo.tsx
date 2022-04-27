@@ -4,7 +4,7 @@ import {StyledLogo, StyledParagraph} from './StyleLogo'
 const Logo: React.FC = () => {
   return (
     <StyledLogo>
-      <StyledParagraph>Open-Wether</StyledParagraph>
+      <StyledParagraph>Smart Meteorologist</StyledParagraph>
     </StyledLogo>
   )
 }

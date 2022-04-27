@@ -14,6 +14,8 @@ import {
   ForecastWeatherList
 } from './ForecastStyles'
 import {getActiveLocation} from '../../../store/geocoding/geocodingSelectors'
+import {WrapperLoader} from '../../weather/style/CardWeatherStyle'
+import Loader from '../../ui/loader/Loader'
 
 interface ForecastElementProps {
   forecasts: Forecast[]
