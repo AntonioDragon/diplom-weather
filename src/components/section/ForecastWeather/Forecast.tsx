@@ -1,6 +1,13 @@
-import React, {useCallback, useMemo} from 'react'
+import React, {useCallback, useEffect, useMemo} from 'react'
 import {DndProvider} from 'react-dnd'
 import {HTML5Backend} from 'react-dnd-html5-backend'
+import {
+  ButtonFavorite,
+  ForecastSection,
+  ForecastTitle,
+  Location
+} from './ForecastStyles'
+import ForecastList from './ForecastWeatherList'
 import {useAppDispatch, useAppSelector} from '../../../app/appStoreHooks'
 import {
   addFavoriteByWether,
@@ -10,20 +17,18 @@ import {
   getActiveLocation,
   getGeocoding
 } from '../../../store/geocoding/geocodingSelectors'
+import {changeThemeByWether} from '../../../store/theme/themeReducer'
+import {getThemeName} from '../../../store/theme/themeSlice'
 import {getForecastsActive} from '../../../store/weather/weatherSelectors'
-import {
-  ButtonFavorite,
-  ForecastSection,
-  ForecastTitle,
-  Location
-} from './ForecastStyles'
-import ForecastList from './ForecastWeatherList'
+import useGetImageByWeatherName from '../../../hooks/useGetImageByWeatherName'
 
 const Forecast: React.FC = () => {
   const dispatch = useAppDispatch()
+  const themeName = useAppSelector(getThemeName)
   const activeForecasts = useAppSelector(getForecastsActive)
   const activeLocation = useAppSelector(getActiveLocation)
   const {geocodingFavorites} = useAppSelector(getGeocoding)
+  const getImageByNameWeather = useGetImageByWeatherName()
 
   const isFavorite = useMemo(() => {
     if (activeLocation) {
@@ -38,6 +43,12 @@ const Forecast: React.FC = () => {
     }
   }, [activeLocation, geocodingFavorites])
 
+  useEffect(() => {
+    if (themeName) {
+      dispatch(changeThemeByWether(themeName))
+    }
+  }, [themeName])
+
   const onChangeFavorite = useCallback(() => {
     if (isFavorite) {
       dispatch(deleteFavoriteToDefault(activeLocation!))
@@ -47,7 +58,7 @@ const Forecast: React.FC = () => {
   }, [isFavorite, activeLocation, dispatch])
 
   return (
-    <ForecastSection>
+    <ForecastSection image={getImageByNameWeather(themeName)}>
       {activeLocation && (
         <Location>
           <ForecastTitle>

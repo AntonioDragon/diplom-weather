@@ -7,7 +7,8 @@ import {JustifyContentEnum} from '../../app/styles/stylesDisplay'
 import useGetStyleByWeather from '../../hooks/useGetStyleByWeather'
 import {
   changeAdaptiveTheme,
-  changeThemeByWether
+  changeThemeByWether,
+  changeThemeName
 } from '../../store/theme/themeReducer'
 import {getIsThemeAdaptive, getThemeOptions} from '../../store/theme/themeSlice'
 import Loader from '../ui/loader/Loader'
@@ -32,14 +33,15 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   const [weather, setWeather] = useState<WeatherApiData>()
   const getWeather = useGetStyleByWeather()
 
-  const themeAdaptive = useMemo(
+  const themeAdaptiveName = useMemo(
     () =>
       isThemeAdaptive && weather && themeOptions[2].isActive
         ? getWeather(weather)
         : null,
     [weather, isThemeAdaptive, getWeather, themeOptions]
   )
-
+  console.log(themeAdaptiveName)
+  
   useEffect(() => {
     dispatch(changeAdaptiveTheme(true))
     return () => {
@@ -48,10 +50,10 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   }, [])
 
   useEffect(() => {
-    if (themeAdaptive) {
-      dispatch(changeThemeByWether(themeAdaptive))
+    if (themeAdaptiveName) {
+      dispatch(changeThemeName(themeAdaptiveName))
     }
-  }, [themeAdaptive])
+  }, [themeAdaptiveName])
 
   useEffect(() => {
     if (location) {
