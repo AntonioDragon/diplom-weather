@@ -9,21 +9,32 @@ export const HeaderStyle = styled.header`
   padding: 0 30px;
   box-sizing: border-box;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   min-height: 64px;
   width: 100%;
-  background-color: ${({theme})=> theme.colors.primary || '#121212'};
+  background-color: ${({theme}) => theme.colors.primary || '#121212'};
   box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px -1px,
     rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
   background-image: linear-gradient(
     rgba(255, 255, 255, 0.09),
     rgba(255, 255, 255, 0.09)
   );
+  @media (max-width: 675px) {
+    padding: 10px 30px;
+    justify-content: center;
+  }
+  @media (max-width: 375px) {
+    padding: 10px;
+  }
 `
 
 export const NavStyle = styled.div<StyleProps>`
-  display: ${({display}) => display || DisplayEnum.block};
+  display: flex;
   align-items: center;
+  @media (max-width: 675px) {
+    margin-top: 10px;
+  }
 `
 
 export const HeaderButton = styled(AppButton)`
@@ -37,7 +48,7 @@ export const HeaderButton = styled(AppButton)`
     height: 30px;
     transition: 1s all ease-out;
     & * {
-      fill: ${({theme})=> theme.colors.secondary || '#ffffff'} ;
+      fill: ${({theme}) => theme.colors.secondary || '#ffffff'};
       transition: 1s all ease-out;
     }
   }
@@ -45,7 +56,7 @@ export const HeaderButton = styled(AppButton)`
     & svg {
       transform: rotate(360deg);
       & * {
-        fill: ${({theme})=> theme.colors.hover || '#ff4a16'};
+        fill: ${({theme}) => theme.colors.hover || '#ff4a16'};
       }
     }
   }

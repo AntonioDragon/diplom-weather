@@ -62,7 +62,7 @@ const Header: React.FC = () => {
         />
       </Portal>
       <Logo />
-      <NavStyle display={DisplayEnum.flex}>
+      <NavStyle>
         <InputSelect
           onChange={onChangeInputGeolocation}
           onClick={onClickValue}

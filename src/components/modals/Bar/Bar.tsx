@@ -1,6 +1,12 @@
 import React, {useRef} from 'react'
 import useClickOutside from '../../../hooks/useClickOutside'
-import {BarList, BarButton, SelectBar} from './BarStyles'
+import {
+  BarList,
+  BarButton,
+  SelectBar,
+  BarButtonBurger,
+  BurgerWrapper
+} from './BarStyles'
 
 interface BarProps {
   children: React.ReactNode
@@ -38,6 +44,14 @@ const Bar: React.FC<BarProps> = ({
           <path d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z' />
         </svg>
       </BarButton>
+      <BurgerWrapper isLeft={isLeft}>
+        <BarButtonBurger
+          isActive={isActive}
+          onClick={() => onSetIsActive(!isActive)}
+        >
+          <span />
+        </BarButtonBurger>
+      </BurgerWrapper>
     </>
   )
 }

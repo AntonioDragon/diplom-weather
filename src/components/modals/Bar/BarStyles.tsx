@@ -24,8 +24,14 @@ export const SelectBar = styled.aside<ForecastsSelectBarStyledProps>`
   );
   overflow-x: auto;
   transition: 0.7s all ease-out;
+  @media (max-width: 675px) {
+    padding-top: 70px;
+  }
   &::-webkit-scrollbar {
     width: 8px;
+    @media (max-width: 675px) {
+      width: 3px;
+    }
   }
   &::-webkit-scrollbar-track {
     background-color: ${({theme}) => theme.colors.primary || '#121212'};
@@ -126,4 +132,75 @@ export const BarButton = styled(AppButton)<ForecastsButtonStyledProps>`
           transform: rotate(0);
       }
       `)}
+  @media (max-width: 675px) {
+    display: none;
+  }
+`
+export const BurgerWrapper = styled.div<ForecastsButtonStyledProps>`
+  position: absolute;
+  top: 105px;
+  right: 10px;
+  ${({isLeft}) =>
+    isLeft &&
+    `
+  right: auto;
+  left:10px;
+  `}
+`
+
+export const BarButtonBurger = styled.button<ForecastsButtonStyledProps>`
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 25px;
+  border: none;
+  background-color: transparent;
+  @media (min-width: 665px) {
+    display: none;
+  }
+  & span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0px;
+    background-color: ${({theme}) => theme.colors.quaternary};
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+    &::before {
+      top: 7px;
+    }
+    &::after {
+      top: -7px;
+    }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      left: 0px;
+      background-color: ${({theme}) => theme.colors.quaternary};
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: all 0.5s ease-out;
+    }
+  }
+  ${({isActive}) =>
+    isActive &&
+    `
+      position: fixed;
+      & .burger-button__icon {
+        background: rgba(0, 0, 0, 0);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+        &::after {
+          top: 0;
+          transform: rotate(135deg);
+          box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+      }
+  `}
 `

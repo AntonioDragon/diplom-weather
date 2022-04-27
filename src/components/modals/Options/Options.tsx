@@ -20,14 +20,11 @@ interface OptionsProps {
 
 const Options: React.FC<OptionsProps> = ({isActive, onChange}) => {
   const {languages, activeLanguage} = useAppSelector(getLanguages)
-  const optionsBar = useRef<HTMLDivElement>(null)
   const themeOptions = useAppSelector(getThemeOptions)
   const dispatch = useAppDispatch()
 
-  useClickOutside(optionsBar.current!, () => onChange(false))
-
   return (
-    <OptionsBar ref={optionsBar} isActive={isActive}>
+    <OptionsBar isActive={isActive}>
       <LanguagesBar>
         <TitleOptions>Languages:</TitleOptions>
         {languages.map((language) => (

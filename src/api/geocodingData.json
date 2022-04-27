@@ -1,5 +1,39 @@
 [
- ,
+  {
+    "id": 0,
+    "name": "Zaporizhzhia",
+    "local_names": {
+      "ru": "Запорожье",
+      "et": "Zaporižžja",
+      "lt": "Zaporižia",
+      "uk": "Запоріжжя",
+      "az": "Zaporojya",
+      "sk": "Zaporižžia",
+      "de": "Saporischschja",
+      "eo": "Zaporiĵo",
+      "cs": "Záporoží",
+      "hu": "Zaporizzsja",
+      "ko": "자포리자",
+      "es": "Zaporiyia",
+      "pl": "Zaporoże",
+      "fr": "Zaporijia",
+      "ar": "زاباروجيا",
+      "lv": "Zaporižja",
+      "zh": "扎波里日扎",
+      "en": "Zaporizhzhia",
+      "sh": "Zaporižja",
+      "nl": "Zaporizja",
+      "be": "Запарожжа",
+      "sr": "Запорожје",
+      "hr": "Zaporižžja",
+      "tr": "Zaporijjia",
+      "pt": "Zaporizhzhya"
+    },
+    "lat": 47.8507859,
+    "lon": 35.1182867,
+    "country": "UA",
+    "state": "Zaporizhia Oblast"
+  },
   {
     "name": "Svydnytsia",
     "local_names": {

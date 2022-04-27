@@ -6,7 +6,13 @@ interface InputSelectWrapperStyledProps extends StyleProps {}
 export const InputSelectWrapper = styled.div<InputSelectWrapperStyledProps>`
   position: relative;
   display: inline-block;
-  width: ${({width}) => width || 'auto'};
+  width: 400px;
+  @media (max-width: 500px) {
+    width: 300px;
+  }
+  @media (max-width: 375px) {
+    width: 250px;
+  }
 `
 export const Input = styled.input`
   padding: 10px 5px;

@@ -8,6 +8,7 @@ export const OptionsBar = styled.aside<OptionsStyledProps>`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -21,7 +22,14 @@ export const OptionsBar = styled.aside<OptionsStyledProps>`
     isActive &&
     `
     top: 60px;
+    @media (max-width: 675px) {
+      top: 100px;
+    }
   `}
+  @media (max-width: 675px) {
+    height: 80px;
+    padding: 0 5px;
+  }
 `
 
 export const ThemesBar = styled.div`

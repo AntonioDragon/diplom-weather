@@ -6,6 +6,7 @@ export const CardButton = styled.button`
   right: 10px;
   top: 10px;
   position: absolute;
+  padding: 0;
   background-color: transparent;
   border: none;
   opacity: 0;
@@ -18,6 +19,9 @@ export const CardButton = styled.button`
     & * {
       fill: ${({theme}) => theme.colors.hover || '#ff4a16'};
     }
+  }
+  @media (max-width: 675px) {
+    opacity: 1;
   }
 `
 
