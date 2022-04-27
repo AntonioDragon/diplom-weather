@@ -9,7 +9,6 @@ export const CardButton = styled.button`
   padding: 0;
   background-color: transparent;
   border: none;
-  opacity: 0;
   transition: 0.3s all ease-out;
   & svg * {
     fill: ${({theme}) => theme.colors.white || '#ffffff'};
@@ -45,9 +44,4 @@ export const WeatherCardBlock = styled.div`
   height: 100%;
   box-sizing: border-box;
   border-radius: 4px;
-  &:hover {
-    & ${CardButton} {
-      opacity: 1;
-    }
-  }
 `
