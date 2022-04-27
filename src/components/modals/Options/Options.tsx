@@ -19,24 +19,11 @@ interface OptionsProps {
 }
 
 const Options: React.FC<OptionsProps> = ({isActive, onChange}) => {
-  const {languages, activeLanguage} = useAppSelector(getLanguages)
   const themeOptions = useAppSelector(getThemeOptions)
   const dispatch = useAppDispatch()
 
   return (
     <OptionsBar isActive={isActive}>
-      <LanguagesBar>
-        <TitleOptions>Languages:</TitleOptions>
-        {languages.map((language) => (
-          <ButtonOptions
-            onClick={() => dispatch(changeActiveLanguage(language))}
-            key={language.id}
-            isActive={activeLanguage.id === language.id}
-          >
-            {language.name}
-          </ButtonOptions>
-        ))}
-      </LanguagesBar>
       <ThemesBar>
         <TitleOptions>Themes:</TitleOptions>
         {themeOptions.map((option) => (

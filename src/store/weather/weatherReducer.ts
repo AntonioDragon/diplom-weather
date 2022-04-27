@@ -54,12 +54,16 @@ const weatherSlide = createSlice({
   name: 'weather',
   initialState,
   reducers: {
+    loadWeather: (state, action: PayloadAction<Forecast[]>) => {
+      state.activeForecasts = action.payload
+    },
     setActiveForecast: (state, action: PayloadAction<number>) => {
       const forecastIndex = state.forecasts.findIndex(
         (forecast) => forecast.id === action.payload
       )
       state.activeForecasts.push(state.forecasts[forecastIndex])
       state.forecasts[forecastIndex].isActive = true
+      localStorage.setItem('forecasts', JSON.stringify(state.activeForecasts))
     },
     removeActiveForecast: (state, action: PayloadAction<number>) => {
       const forecastIndex = state.forecasts.findIndex(
@@ -72,6 +76,7 @@ const weatherSlide = createSlice({
       if (findForecast !== -1) {
         state.activeForecasts.splice(findForecast, 1)
       }
+      localStorage.setItem('forecasts', JSON.stringify(state.activeForecasts))
     },
     setActiveForecastDropDown: (
       state,
@@ -114,6 +119,7 @@ const weatherSlide = createSlice({
           break
         }
       }
+      localStorage.setItem('forecasts', JSON.stringify(state.activeForecasts))
     }
   },
   extraReducers: (builder) => {}
@@ -122,7 +128,8 @@ const weatherSlide = createSlice({
 export const {
   setActiveForecast,
   setActiveForecastDropDown,
-  removeActiveForecast
+  removeActiveForecast,
+  loadWeather
 } = weatherSlide.actions
 
 export default weatherSlide.reducer
