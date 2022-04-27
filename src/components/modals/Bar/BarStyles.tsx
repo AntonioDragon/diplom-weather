@@ -148,6 +148,11 @@ export const BurgerWrapper = styled.div<ForecastsButtonStyledProps>`
   `}
 `
 
+export const ParagraphEmptyList = styled.p`
+  text-align: center;
+  margin-top: 50px;
+`
+
 export const BarButtonBurger = styled.button<ForecastsButtonStyledProps>`
   cursor: pointer;
   position: relative;

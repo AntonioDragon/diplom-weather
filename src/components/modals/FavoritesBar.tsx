@@ -5,7 +5,7 @@ import {changeActiveLocation} from '../../store/geocoding/geocodingReducer'
 import {getGeocoding} from '../../store/geocoding/geocodingSelectors'
 import CityCard from '../ui/card/CityCard/CityCard'
 import Bar from './Bar/Bar'
-import {BarElement} from './Bar/BarStyles'
+import {BarElement, ParagraphEmptyList} from './Bar/BarStyles'
 
 const FavoritesBar: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -27,14 +27,22 @@ const FavoritesBar: React.FC = () => {
 
   return (
     <Bar onSetIsActive={onSetActiveFavorite} isActive={isActive} isLeft>
-      {geocodingFavorites.map((favorite) => (
-        <BarElement key={favorite.id}>
-          <CityCard
-            {...favorite}
-            onClick={() => onClickWeatherPreview(favorite)}
-          />
-        </BarElement>
-      ))}
+      {geocodingFavorites.length !== 0 ? (
+        <>
+          {geocodingFavorites.map((favorite) => (
+            <BarElement key={favorite.id}>
+              <CityCard
+                {...favorite}
+                onClick={() => onClickWeatherPreview(favorite)}
+              />
+            </BarElement>
+          ))}
+        </>
+      ) : (
+        <ParagraphEmptyList>
+          Click on the star next to the name in the weather forecast list
+        </ParagraphEmptyList>
+      )}
     </Bar>
   )
 }

@@ -38,7 +38,7 @@ const initialState: initialStateData = {
       id: 2,
       name: 'Adaptive Theme',
       isActive: false,
-      isDisable: false
+      isDisable: true
     }
   ]
 }
@@ -47,6 +47,9 @@ const themeSlide = createSlice({
   name: 'theme',
   initialState,
   reducers: {
+    loadThemes: (state, action: PayloadAction<OptionData[]>) => {
+      state.themesOptions = action.payload
+    },
     changeThemeByWether: (state, action: PayloadAction<ThemePaletteEnum>) => {
       state.theme = themeProvider.getThemeByName(action.payload)
     },
@@ -58,17 +61,16 @@ const themeSlide = createSlice({
       state.themesOptions[action.payload].isActive = true
       switch (action.payload) {
         case 0:
-          state.isThemeAdaptive = false
           state.theme = themeProvider.getThemeByName()
           break
         case 1:
-          state.isThemeAdaptive = false
           state.theme = themeProvider.getThemeByName(ThemePaletteEnum.black)
           break
         case 2:
-          state.isThemeAdaptive = true
+          state.themesOptions[2].isActive = true
           break
       }
+      localStorage.setItem('theme-options', JSON.stringify(state.themesOptions))
     },
     changeAdaptiveTheme: (state, action: PayloadAction<boolean>) => {
       if (!action.payload) {
@@ -83,7 +85,12 @@ const themeSlide = createSlice({
   }
 })
 
-export const {changeAdaptiveTheme, changeOptionTheme, changeThemeByWether, changeThemeName} =
-  themeSlide.actions
+export const {
+  changeAdaptiveTheme,
+  changeOptionTheme,
+  changeThemeByWether,
+  changeThemeName,
+  loadThemes
+} = themeSlide.actions
 
 export default themeSlide.reducer

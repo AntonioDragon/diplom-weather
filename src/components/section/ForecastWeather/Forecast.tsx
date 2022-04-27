@@ -5,7 +5,11 @@ import {
   ButtonFavorite,
   ForecastSection,
   ForecastTitle,
-  Location
+  Location,
+  NotFoundElement,
+  NotFoundList,
+  NotFoundLocation,
+  NotFoundTitle
 } from './ForecastStyles'
 import ForecastList from './ForecastWeatherList'
 import {useAppDispatch, useAppSelector} from '../../../app/appStoreHooks'
@@ -18,13 +22,14 @@ import {
   getGeocoding
 } from '../../../store/geocoding/geocodingSelectors'
 import {changeThemeByWether} from '../../../store/theme/themeReducer'
-import {getThemeName} from '../../../store/theme/themeSlice'
+import {getThemeName, getThemeOptions} from '../../../store/theme/themeSlice'
 import {getForecastsActive} from '../../../store/weather/weatherSelectors'
 import useGetImageByWeatherName from '../../../hooks/useGetImageByWeatherName'
 
 const Forecast: React.FC = () => {
   const dispatch = useAppDispatch()
   const themeName = useAppSelector(getThemeName)
+  const themeOptions = useAppSelector(getThemeOptions)
   const activeForecasts = useAppSelector(getForecastsActive)
   const activeLocation = useAppSelector(getActiveLocation)
   const {geocodingFavorites} = useAppSelector(getGeocoding)
@@ -44,10 +49,10 @@ const Forecast: React.FC = () => {
   }, [activeLocation, geocodingFavorites])
 
   useEffect(() => {
-    if (themeName) {
+    if (themeName && themeOptions[2].isActive) {
       dispatch(changeThemeByWether(themeName))
     }
-  }, [themeName])
+  }, [themeName, themeOptions])
 
   const onChangeFavorite = useCallback(() => {
     if (isFavorite) {
@@ -58,23 +63,42 @@ const Forecast: React.FC = () => {
   }, [isFavorite, activeLocation, dispatch])
 
   return (
-    <ForecastSection image={getImageByNameWeather(themeName)}>
-      {activeLocation && (
-        <Location>
-          <ForecastTitle>
-            <span>{activeLocation.name}</span>
-            <span>{activeLocation.country}</span>
-          </ForecastTitle>
-          <ButtonFavorite isActive={isFavorite} onClick={onChangeFavorite}>
-            <svg xmlns='http://www.w3.org/2000/svg' height='24' width='24'>
-              <path d='M5.825 22 8.15 14.4 2 10H9.6L12 2L14.4 10H22L15.85 14.4L18.175 22L12 17.3Z' />
-            </svg>
-          </ButtonFavorite>
-        </Location>
+    <ForecastSection image={themeOptions[2].isActive && getImageByNameWeather(themeName)}>
+      {activeLocation ? (
+        <>
+          <Location>
+            <ForecastTitle>
+              <span>{activeLocation.name}</span>
+              <span>{activeLocation.country}</span>
+            </ForecastTitle>
+            <ButtonFavorite isActive={isFavorite} onClick={onChangeFavorite}>
+              <svg xmlns='http://www.w3.org/2000/svg' height='24' width='24'>
+                <path d='M5.825 22 8.15 14.4 2 10H9.6L12 2L14.4 10H22L15.85 14.4L18.175 22L12 17.3Z' />
+              </svg>
+            </ButtonFavorite>
+          </Location>
+          <DndProvider backend={HTML5Backend}>
+            <ForecastList forecasts={activeForecasts} />
+          </DndProvider>
+        </>
+      ) : (
+        <NotFoundLocation>
+          <NotFoundTitle>
+            So that we can show you some weather, follow one of the points:
+          </NotFoundTitle>
+          <NotFoundList>
+            <NotFoundElement>
+              Give permission to receive your geodata
+            </NotFoundElement>
+            <NotFoundElement>
+              Find the desired city in the search
+            </NotFoundElement>
+            <NotFoundElement>
+              Click on the city card in the Favorites section
+            </NotFoundElement>
+          </NotFoundList>
+        </NotFoundLocation>
       )}
-      <DndProvider backend={HTML5Backend}>
-        <ForecastList forecasts={activeForecasts} />
-      </DndProvider>
     </ForecastSection>
   )
 }

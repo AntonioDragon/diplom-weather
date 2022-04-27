@@ -40,7 +40,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({
         : null,
     [weather, isThemeAdaptive, getWeather, themeOptions]
   )
-  console.log(themeAdaptiveName)
+ 
   
   useEffect(() => {
     dispatch(changeAdaptiveTheme(true))

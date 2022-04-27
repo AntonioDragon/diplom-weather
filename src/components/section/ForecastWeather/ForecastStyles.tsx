@@ -174,3 +174,32 @@ export const ForecastTitle = styled.h1`
     font-size: 18px;
   }
 `
+
+export const NotFoundLocation = styled.div`
+  padding: 20px;
+  background-color: ${({theme}) => theme.colors.primary || '#121212'};
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 11px 15px -7px,
+    rgb(0 0 0 / 14%) 0px 24px 38px 3px, rgb(0 0 0 / 12%) 0px 9px 46px 8px;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0.16)
+  );
+`
+
+export const NotFoundTitle = styled.h2`
+  font-size: 20px;
+  text-align: center;
+  color: ${({theme}) => theme.colors.secondary};
+`
+
+export const NotFoundList = styled.ul`
+  @media (max-width: 450px) {
+    padding: 10px;
+  }
+`
+
+export const NotFoundElement = styled.li`
+  margin-top: 10px;
+  color: ${({theme}) => theme.colors.quaternary};
+`
